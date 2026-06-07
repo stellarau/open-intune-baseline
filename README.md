@@ -90,17 +90,17 @@ The table below lists all policies from the upstream [OpenIntuneBaseline](https:
 
 ---
 
-## IIB vs SIB Policy Comparison
+## OIB vs SIB Policy Comparison
 
-This section summarises the functional differences between the upstream OpenIntuneBaseline (IIB) and the Stellar Intune Baseline (SIB). Only policies with setting-level differences are listed.
+This section summarises the functional differences between the upstream OpenIntuneBaseline (OIB) and the Stellar Intune Baseline (SIB). Only policies with setting-level differences are listed.
 
 ---
 
 ### SC - Device Security - Local Security Policies (24H2+)
 
-**Versions:** IIB v3.6 / SIB v3.6 — ⚠️ **1 value difference**
+**Versions:** OIB v3.6 / SIB v3.6 — ⚠️ **1 value difference**
 
-| Setting | IIB | SIB |
+| Setting | OIB | SIB |
 |---------|-----|-----|
 | UAC: Switch to secure desktop when prompting for elevation | `1` (Enabled) | `0` (Disabled) |
 
@@ -110,25 +110,25 @@ This section summarises the functional differences between the upstream OpenIntu
 
 ### SC - Device Security - Location and Privacy
 
-**Versions:** IIB v3.2 / SIB v3.2 — ⚠️ **Multiple differences**
+**Versions:** OIB v3.2 / SIB v3.2 — ⚠️ **Multiple differences**
 
-| Setting | IIB | SIB |
+| Setting | OIB | SIB |
 |---------|-----|-----|
 | Let apps access location (`letappsaccesslocation`) | `0` (User in control) | `1` (Force allow) |
 | Allow location (`system_allowlocation`) | `1` (Allowed, not user-overridable) | `2` (Allowed, user can override) |
 | Let apps access location — force allow these apps | `windows.immersivecontrolpanel`, `Microsoft.OutlookForWindows` | ❌ Missing entirely |
 
-> **Note:** IIB locks down location with a specific app allowlist. SIB is more permissive — all apps force-allowed and users can change system location settings.
+> **Note:** OIB locks down location with a specific app allowlist. SIB is more permissive — all apps force-allowed and users can change system location settings.
 
 ---
 
 ### SC - Device Security - Security Hardening
 
-**Versions:** IIB v3.7 / SIB v3.7 — ⚠️ **4 value differences, 5 settings missing from SIB**
+**Versions:** OIB v3.7 / SIB v3.7 — ⚠️ **4 value differences, 5 settings missing from SIB**
 
 **Value differences:**
 
-| Setting | IIB | SIB |
+| Setting | OIB | SIB |
 |---------|-----|-----|
 | WCM: Minimize simultaneous connections | `1` (Enabled) | `0` (Disabled) |
 | Prohibit connection to non-domain networks when connected to domain | `1` (Enabled) | `0` (Disabled) |
@@ -137,7 +137,7 @@ This section summarises the functional differences between the upstream OpenIntu
 
 **Settings missing from SIB entirely:**
 
-| Setting | IIB Value |
+| Setting | OIB Value |
 |---------|-----------|
 | WCM: Minimize connections — options sub-setting | `3` |
 | LanmanWorkstation: Audit insecure guest logon | `1` (Enabled) |
@@ -151,9 +151,9 @@ This section summarises the functional differences between the upstream OpenIntu
 
 ### SC - Device Security - Windows Subsystem for Linux
 
-**Versions:** IIB v3.2 / SIB v3.2 — ⚠️ **1 value difference**
+**Versions:** OIB v3.2 / SIB v3.2 — ⚠️ **1 value difference**
 
-| Setting | IIB | SIB |
+| Setting | OIB | SIB |
 |---------|-----|-----|
 | WSL: Custom networking user setting configurable | `0` (Disabled) | `1` (Enabled) |
 
@@ -163,11 +163,11 @@ This section summarises the functional differences between the upstream OpenIntu
 
 ### SC - Microsoft Edge - D - Security
 
-**Versions:** IIB v3.8 / SIB v3.7 — ⚠️ **Version gap with multiple differences**
+**Versions:** OIB v3.8 / SIB v3.7 — ⚠️ **Version gap with multiple differences**
 
 **Value differences:**
 
-| Setting | IIB v3.8 | SIB v3.7 |
+| Setting | OIB v3.8 | SIB v3.7 |
 |---------|----------|----------|
 | Download restrictions | `1` (Enabled) | `0` (Disabled) |
 | Feature flag overrides control | `1` (Enabled) | `0` (Disabled) |
@@ -175,7 +175,7 @@ This section summarises the functional differences between the upstream OpenIntu
 | Prevent SmartScreen prompt override | `1` (Enabled) | `0` (Disabled) |
 | Prevent SmartScreen prompt override for files | `1` (Enabled) | `0` (Disabled) |
 
-**Added in IIB v3.8 (missing from SIB):**
+**Added in OIB v3.8 (missing from SIB):**
 
 | Setting | Value |
 |---------|-------|
@@ -185,7 +185,7 @@ This section summarises the functional differences between the upstream OpenIntu
 | Network prediction options | `1` (Enabled) |
 | Network prediction options sub-setting | `2` |
 
-**Removed in IIB v3.8 (only in SIB v3.7):**
+**Removed in OIB v3.8 (only in SIB v3.7):**
 
 | Setting | Value |
 |---------|-------|
@@ -197,39 +197,39 @@ This section summarises the functional differences between the upstream OpenIntu
 
 ### SC - Microsoft Edge - U - Extensions
 
-**Versions:** IIB v3.1 / SIB v3.1 — ⚠️ **Major differences**
+**Versions:** OIB v3.1 / SIB v3.1 — ⚠️ **Major differences**
 
 **Value differences:**
 
-| Setting | IIB | SIB |
+| Setting | OIB | SIB |
 |---------|-----|-----|
 | Force-installed extensions | `nkbndigcebkoaejohleckhekfmcecfja`, `ofefcgjbeghpigppfmkologfjadafddi` | `lfochlioelphaglamdcakfjemolpichk`, `gaaceiggkkiffbfdpmfapegoiohkiipl` |
 
 **Settings missing from SIB entirely:**
 
-| Setting | IIB Value |
+| Setting | OIB Value |
 |---------|-----------|
 | Extension install allow list | `0` (Disabled — blocklist controls access) |
 | Block external extensions | `1` (Enabled) |
 | Extension install block list | `*` (Block all extensions) |
 
-> **Risk:** SIB has no blocklist, meaning users can install any Edge extension. Force-installed extension IDs are completely different between IIB and SIB — confirm SIB extensions are intentional.
+> **Risk:** SIB has no blocklist, meaning users can install any Edge extension. Force-installed extension IDs are completely different between OIB and SIB — confirm SIB extensions are intentional.
 
 ---
 
 ### SC - Microsoft Edge - U - Password Management
 
-**Versions:** IIB v3.0 / SIB v3.0 — ⚠️ **Major differences**
+**Versions:** OIB v3.0 / SIB v3.0 — ⚠️ **Major differences**
 
 **Value differences:**
 
-| Setting | IIB | SIB |
+| Setting | OIB | SIB |
 |---------|-----|-----|
 | Password manager enabled | `1` (Enabled) | `0` (Disabled) |
 
 **Settings missing from SIB entirely:**
 
-| Setting | IIB Value |
+| Setting | OIB Value |
 |---------|-----------|
 | Password monitor allowed (breach detection) | `1` (Enabled) |
 | Password generator enabled | `1` (Enabled) |
@@ -241,11 +241,11 @@ This section summarises the functional differences between the upstream OpenIntu
 
 ### SC - Microsoft Edge - U - Profiles, Sign-In and Sync
 
-**Versions:** IIB v3.0 / SIB v3.0 — ⚠️ **3 value differences, 1 extra setting in SIB**
+**Versions:** OIB v3.0 / SIB v3.0 — ⚠️ **3 value differences, 1 extra setting in SIB**
 
 **Value differences:**
 
-| Setting | IIB | SIB |
+| Setting | OIB | SIB |
 |---------|-----|-----|
 | Implicit sign-in enabled | `1` (Enabled) | `0` (Disabled) |
 | Browser add profile enabled | `0` (Disabled) | `1` (Enabled) |
@@ -263,11 +263,11 @@ This section summarises the functional differences between the upstream OpenIntu
 
 ### SC - Microsoft Edge - U - User Experience
 
-**Versions:** IIB v3.8 / SIB v3.7 — ⚠️ **Version gap**
+**Versions:** OIB v3.8 / SIB v3.7 — ⚠️ **Version gap**
 
 **No value conflicts** — all shared settings are identical.
 
-**Added in IIB v3.8 (missing from SIB):**
+**Added in OIB v3.8 (missing from SIB):**
 
 | Setting | Value |
 |---------|-------|
@@ -276,7 +276,7 @@ This section summarises the functional differences between the upstream OpenIntu
 | Default notifications setting | `2` (Block by default) |
 | Notifications allowed for URLs | `*.microsoft.com`, `*.cloud.microsoft` |
 
-**Removed in IIB v3.8 (only in SIB v3.7):**
+**Removed in OIB v3.8 (only in SIB v3.7):**
 
 | Setting | Value |
 |---------|-------|
@@ -292,9 +292,9 @@ This section summarises the functional differences between the upstream OpenIntu
 
 ### ES - Windows Firewall - Firewall Configuration
 
-**Versions:** IIB v3.1 / SIB v3.1 — ⚠️ **8 value differences (all logging/auditing)**
+**Versions:** OIB v3.1 / SIB v3.1 — ⚠️ **8 value differences (all logging/auditing)**
 
-| Setting | IIB | SIB |
+| Setting | OIB | SIB |
 |---------|-----|-----|
 | Audit: Filtering Platform Connection | `2` (Success auditing) | `0` (No auditing) |
 | Audit: Filtering Platform Packet Drop | `2` (Success auditing) | `0` (No auditing) |
@@ -311,11 +311,11 @@ This section summarises the functional differences between the upstream OpenIntu
 
 ### ES - Windows Hello for Business - WHfB Configuration
 
-**Versions:** IIB v3.2 / SIB v3.2 — ⚠️ **1 value difference, extra user-scoped settings in SIB**
+**Versions:** OIB v3.2 / SIB v3.2 — ⚠️ **1 value difference, extra user-scoped settings in SIB**
 
 **Value differences:**
 
-| Setting | IIB | SIB |
+| Setting | OIB | SIB |
 |---------|-----|-----|
 | Use certificate for on-prem auth | `false` (Cloud Kerberos / key trust) | `true` (Certificate trust) |
 
@@ -328,23 +328,23 @@ This section summarises the functional differences between the upstream OpenIntu
 | Require security device (user scope) | `true` |
 | Use WHfB (user scope) | `true` |
 
-> **Note:** The certificate vs key trust difference is an architectural choice — confirm whether SIB intentionally uses certificate trust. The user-scoped duplicate settings may cause redundancy or conflicts with the device-scoped settings in IIB.
+> **Note:** The certificate vs key trust difference is an architectural choice — confirm whether SIB intentionally uses certificate trust. The user-scoped duplicate settings may cause redundancy or conflicts with the device-scoped settings in OIB.
 
 ---
 
 ### ES - Windows LAPS - LAPS Configuration (24H2+)
 
-**Versions:** IIB v3.6 / SIB v3.6 — ⚠️ **1 value difference, 2 settings missing from SIB**
+**Versions:** OIB v3.6 / SIB v3.6 — ⚠️ **1 value difference, 2 settings missing from SIB**
 
 **Value differences:**
 
-| Setting | IIB | SIB |
+| Setting | OIB | SIB |
 |---------|-----|-----|
 | Post-authentication reset delay | `1` hour | `0` (Immediate / disabled) |
 
 **Settings missing from SIB entirely:**
 
-| Setting | IIB Value |
+| Setting | OIB Value |
 |---------|-----------|
 | Post-authentication actions | `11` (Reset password + sign out + terminate processes) |
 | Automatic account management | Enabled; targets built-in admin (`target_1`); account enabled; randomize name = false |
@@ -355,15 +355,15 @@ This section summarises the functional differences between the upstream OpenIntu
 
 ### SC - Device Security - Login and Lock Screen
 
-**Versions:** IIB v3.8 / SIB v3.1 — ⚠️ **Version gap with differences**
+**Versions:** OIB v3.8 / SIB v3.1 — ⚠️ **Version gap with differences**
 
 **Value differences:**
 
-| Setting | IIB v3.8 | SIB v3.1 |
+| Setting | OIB v3.8 | SIB v3.1 |
 |---------|----------|----------|
 | Disable password reveal button | `0` (Allow reveal) | `1` (Hide reveal button) |
 
-**Only in SIB v3.1 (removed in IIB v3.8):**
+**Only in SIB v3.1 (removed in OIB v3.8):**
 
 | Setting | Value |
 |---------|-------|
@@ -371,15 +371,15 @@ This section summarises the functional differences between the upstream OpenIntu
 | Configure automatic restart sign-on | `1` (Enabled) |
 | ARSO sub-setting | `0` |
 
-> **Note:** ARSO was removed from IIB v3.8, likely due to security concerns (leaves session open post-reboot). Recommend updating SIB to v3.8.
+> **Note:** ARSO was removed from OIB v3.8, likely due to security concerns (leaves session open post-reboot). Recommend updating SIB to v3.8.
 
 ---
 
 ### SC - Device Security - U - Power and Device Lock
 
-**Versions:** IIB v3.6 / SIB v3.6 — ⚠️ **1 value difference**
+**Versions:** OIB v3.6 / SIB v3.6 — ⚠️ **1 value difference**
 
-| Setting | IIB | SIB |
+| Setting | OIB | SIB |
 |---------|-----|-----|
 | Unattended sleep timeout (plugged in) | `900s` (15 min) | `2700s` (45 min) |
 
@@ -389,16 +389,16 @@ This section summarises the functional differences between the upstream OpenIntu
 
 ### SC - Windows User Experience - D - Feature Configuration
 
-**Versions:** IIB v3.8 / SIB v3.1 — ⚠️ **Version gap, settings missing from SIB**
+**Versions:** OIB v3.8 / SIB v3.1 — ⚠️ **Version gap, settings missing from SIB**
 
-No value conflicts on shared settings. Settings added in IIB v3.8 missing from SIB:
+No value conflicts on shared settings. Settings added in OIB v3.8 missing from SIB:
 
-| Setting | IIB v3.8 Value |
+| Setting | OIB v3.8 Value |
 |---------|----------------|
 | Disable share app promotions | `1` (Enabled) |
 | Do not use web results in Search | `0` (Web results allowed) |
 
-> **Note:** 7-version gap between IIB and SIB. Recommend updating SIB to v3.8.
+> **Note:** 7-version gap between OIB and SIB. Recommend updating SIB to v3.8.
 
 ---
 
