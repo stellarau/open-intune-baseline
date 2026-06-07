@@ -5,7 +5,7 @@
 The table below lists all policies from the upstream [OpenIntuneBaseline](https://github.com/SkipToTheEndpoint/OpenIntuneBaseline) and their status in this baseline.
 
 | Policy Name | Status |
-|:---|---|
+|:---|:---:|
 | **Compliance Policies** | |
 | Win - OIB - Compliance - U - Device Health - v3.1 | ✅ |
 | Win - OIB - Compliance - U - Device Security - v3.1 | ✅ |
