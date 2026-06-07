@@ -90,70 +90,54 @@ The table below lists all policies from the upstream [OpenIntuneBaseline](https:
 
 ---
 
-## OIB Policy Comparison: OSB vs PROD
+## IIB vs SIB Policy Comparison
 
-This document summarises the functional differences found between the OSB (baseline) and PROD (production tenant) versions of each OIB Intune configuration policy. Policies with no functional differences are noted as clean. Metadata-only differences (policy IDs, created/modified dates, OIBID in description, assignment groups) are consistent across all policies and are not repeated per-policy.
-
-> **Common metadata pattern across all policies:**
-> - OSB has the `OIBID` in the description field; PROD does not
-> - PROD has group assignments exported; OSB does not
-> - PROD device-scoped (`D`) policies are typically assigned to two device groups (`ff220eee-...`, `de5711eb-...`)
-> - PROD user-scoped (`U`) policies are typically assigned to one user group (`d9b28e0f-...`)
-
----
-
-## Policy Differences
-
-### ES - Local Group Membership - Local Administrators
-
-**Versions:** OSB v3.7 / PROD v3.7 — ✅ **No functional differences**
-
-Settings are identical. Single member `WLapsAdmin`, action `add_restrict`.
+This section summarises the functional differences between the upstream OpenIntuneBaseline (IIB) and the Stellar Intune Baseline (SIB). Only policies with setting-level differences are listed.
 
 ---
 
 ### SC - Device Security - Local Security Policies (24H2+)
 
-**Versions:** OSB v3.6 / PROD v3.6 — ⚠️ **1 value difference**
+**Versions:** IIB v3.6 / SIB v3.6 — ⚠️ **1 value difference**
 
-| Setting | OSB | PROD |
-|---------|-----|------|
+| Setting | IIB | SIB |
+|---------|-----|-----|
 | UAC: Switch to secure desktop when prompting for elevation | `1` (Enabled) | `0` (Disabled) |
 
-> **Risk:** PROD allows UAC prompts on the standard desktop, which is more susceptible to spoofing than the secure desktop.
+> **Risk:** SIB allows UAC prompts on the standard desktop, which is more susceptible to spoofing than the secure desktop.
 
 ---
 
 ### SC - Device Security - Location and Privacy
 
-**Versions:** OSB v3.2 / PROD v3.2 — ⚠️ **Multiple differences**
+**Versions:** IIB v3.2 / SIB v3.2 — ⚠️ **Multiple differences**
 
-| Setting | OSB | PROD |
-|---------|-----|------|
+| Setting | IIB | SIB |
+|---------|-----|-----|
 | Let apps access location (`letappsaccesslocation`) | `0` (User in control) | `1` (Force allow) |
 | Allow location (`system_allowlocation`) | `1` (Allowed, not user-overridable) | `2` (Allowed, user can override) |
 | Let apps access location — force allow these apps | `windows.immersivecontrolpanel`, `Microsoft.OutlookForWindows` | ❌ Missing entirely |
 
-> **Note:** OSB locks down location with a specific app allowlist. PROD is more permissive — all apps force-allowed and users can change system location settings.
+> **Note:** IIB locks down location with a specific app allowlist. SIB is more permissive — all apps force-allowed and users can change system location settings.
 
 ---
 
 ### SC - Device Security - Security Hardening
 
-**Versions:** OSB v3.7 / PROD v3.7 — ⚠️ **4 value differences, 5 settings missing from PROD**
+**Versions:** IIB v3.7 / SIB v3.7 — ⚠️ **4 value differences, 5 settings missing from SIB**
 
 **Value differences:**
 
-| Setting | OSB | PROD |
-|---------|-----|------|
+| Setting | IIB | SIB |
+|---------|-----|-----|
 | WCM: Minimize simultaneous connections | `1` (Enabled) | `0` (Disabled) |
 | Prohibit connection to non-domain networks when connected to domain | `1` (Enabled) | `0` (Disabled) |
 | Wireless Display: Allow projection to this PC | `0` (Disabled) | `1` (Enabled) |
 | Wireless Display: Require PIN for pairing | `1` (Required) | `0` (Not required) |
 
-**Settings missing from PROD entirely:**
+**Settings missing from SIB entirely:**
 
-| Setting | OSB Value |
+| Setting | IIB Value |
 |---------|-----------|
 | WCM: Minimize connections — options sub-setting | `3` |
 | LanmanWorkstation: Audit insecure guest logon | `1` (Enabled) |
@@ -161,37 +145,37 @@ Settings are identical. Single member `WLapsAdmin`, action `add_restrict`.
 | LanmanWorkstation: Audit server doesn't support signing | `1` (Enabled) |
 | Sudo: Enable sudo | `0` (Disabled) |
 
-> **Risk:** Wireless display projection allowed without PIN in PROD is a meaningful security regression. Missing LanmanWorkstation audit settings reduce visibility into SMB security issues. Missing sudo disable leaves the feature in its default state.
+> **Risk:** Wireless display projection allowed without PIN in SIB is a meaningful security regression. Missing LanmanWorkstation audit settings reduce visibility into SMB security issues. Missing sudo disable leaves the feature in its default state.
 
 ---
 
 ### SC - Device Security - Windows Subsystem for Linux
 
-**Versions:** OSB v3.2 / PROD v3.2 — ⚠️ **1 value difference**
+**Versions:** IIB v3.2 / SIB v3.2 — ⚠️ **1 value difference**
 
-| Setting | OSB | PROD |
-|---------|-----|------|
+| Setting | IIB | SIB |
+|---------|-----|-----|
 | WSL: Custom networking user setting configurable | `0` (Disabled) | `1` (Enabled) |
 
-> **Note:** PROD allows users to configure custom WSL networking. May be intentional for developer users.
+> **Note:** SIB allows users to configure custom WSL networking. May be intentional for developer users.
 
 ---
 
 ### SC - Microsoft Edge - D - Security
 
-**Versions:** OSB v3.8 / PROD v3.7 — ⚠️ **Version gap with multiple differences**
+**Versions:** IIB v3.8 / SIB v3.7 — ⚠️ **Version gap with multiple differences**
 
 **Value differences:**
 
-| Setting | OSB v3.8 | PROD v3.7 |
-|---------|----------|-----------|
+| Setting | IIB v3.8 | SIB v3.7 |
+|---------|----------|----------|
 | Download restrictions | `1` (Enabled) | `0` (Disabled) |
 | Feature flag overrides control | `1` (Enabled) | `0` (Disabled) |
 | SSL error override allowed | `0` (Disabled) | `1` (Enabled — users can bypass SSL errors) |
 | Prevent SmartScreen prompt override | `1` (Enabled) | `0` (Disabled) |
 | Prevent SmartScreen prompt override for files | `1` (Enabled) | `0` (Disabled) |
 
-**Added in OSB v3.8 (missing from PROD):**
+**Added in IIB v3.8 (missing from SIB):**
 
 | Setting | Value |
 |---------|-------|
@@ -201,89 +185,89 @@ Settings are identical. Single member `WLapsAdmin`, action `add_restrict`.
 | Network prediction options | `1` (Enabled) |
 | Network prediction options sub-setting | `2` |
 
-**Removed in OSB v3.8 (only in PROD v3.7):**
+**Removed in IIB v3.8 (only in SIB v3.7):**
 
 | Setting | Value |
 |---------|-------|
 | Renderer code integrity enabled | `1` (Deprecated/removed from Edge policy) |
 
-> **Risk:** SSL error bypass and SmartScreen override being allowed in PROD are significant security gaps. Recommend updating PROD to v3.8.
+> **Risk:** SSL error bypass and SmartScreen override being allowed in SIB are significant security gaps. Recommend updating SIB to v3.8.
 
 ---
 
 ### SC - Microsoft Edge - U - Extensions
 
-**Versions:** OSB v3.1 / PROD v3.1 — ⚠️ **Major differences**
+**Versions:** IIB v3.1 / SIB v3.1 — ⚠️ **Major differences**
 
 **Value differences:**
 
-| Setting | OSB | PROD |
-|---------|-----|------|
+| Setting | IIB | SIB |
+|---------|-----|-----|
 | Force-installed extensions | `nkbndigcebkoaejohleckhekfmcecfja`, `ofefcgjbeghpigppfmkologfjadafddi` | `lfochlioelphaglamdcakfjemolpichk`, `gaaceiggkkiffbfdpmfapegoiohkiipl` |
 
-**Settings missing from PROD entirely:**
+**Settings missing from SIB entirely:**
 
-| Setting | OSB Value |
+| Setting | IIB Value |
 |---------|-----------|
 | Extension install allow list | `0` (Disabled — blocklist controls access) |
 | Block external extensions | `1` (Enabled) |
 | Extension install block list | `*` (Block all extensions) |
 
-> **Risk:** PROD has no blocklist, meaning users can install any Edge extension. Force-installed extension IDs are completely different between OSB and PROD — confirm PROD extensions are intentional. PROD also uses only 1 assignment group vs the standard 2.
+> **Risk:** SIB has no blocklist, meaning users can install any Edge extension. Force-installed extension IDs are completely different between IIB and SIB — confirm SIB extensions are intentional.
 
 ---
 
 ### SC - Microsoft Edge - U - Password Management
 
-**Versions:** OSB v3.0 / PROD v3.0 — ⚠️ **Major differences**
+**Versions:** IIB v3.0 / SIB v3.0 — ⚠️ **Major differences**
 
 **Value differences:**
 
-| Setting | OSB | PROD |
-|---------|-----|------|
+| Setting | IIB | SIB |
+|---------|-----|-----|
 | Password manager enabled | `1` (Enabled) | `0` (Disabled) |
 
-**Settings missing from PROD entirely:**
+**Settings missing from SIB entirely:**
 
-| Setting | OSB Value |
+| Setting | IIB Value |
 |---------|-----------|
 | Password monitor allowed (breach detection) | `1` (Enabled) |
 | Password generator enabled | `1` (Enabled) |
 | Primary password setting | `1` (Enabled, requires primary password to access saved passwords) |
 
-> **Note:** PROD disables the Edge password manager entirely — likely intentional if a third-party password manager is in use. PROD uses 1 assignment group vs the standard 2.
+> **Note:** SIB disables the Edge password manager entirely — likely intentional if a third-party password manager is in use.
 
 ---
 
 ### SC - Microsoft Edge - U - Profiles, Sign-In and Sync
 
-**Versions:** OSB v3.0 / PROD v3.0 — ⚠️ **3 value differences, 1 extra setting in PROD**
+**Versions:** IIB v3.0 / SIB v3.0 — ⚠️ **3 value differences, 1 extra setting in SIB**
 
 **Value differences:**
 
-| Setting | OSB | PROD |
-|---------|-----|------|
+| Setting | IIB | SIB |
+|---------|-----|-----|
 | Implicit sign-in enabled | `1` (Enabled) | `0` (Disabled) |
 | Browser add profile enabled | `0` (Disabled) | `1` (Enabled) |
 | Browser sign-in mode | `2` (Force sign-in) | `1` (Allow sign-in) |
 
-**Only in PROD:**
+**Only in SIB:**
 
 | Setting | Value |
 |---------|-------|
 | Hide first run experience | `1` (Enabled — skips welcome screen) |
 
-> **Note:** PROD does not force Edge sign-in and allows users to add profiles. The hide first run setting is a benign UX addition.
+> **Note:** SIB does not force Edge sign-in and allows users to add profiles. The hide first run setting is a benign UX addition.
 
 ---
 
 ### SC - Microsoft Edge - U - User Experience
 
-**Versions:** OSB v3.8 / PROD v3.7 — ⚠️ **Version gap**
+**Versions:** IIB v3.8 / SIB v3.7 — ⚠️ **Version gap**
 
 **No value conflicts** — all shared settings are identical.
 
-**Added in OSB v3.8 (missing from PROD):**
+**Added in IIB v3.8 (missing from SIB):**
 
 | Setting | Value |
 |---------|-------|
@@ -292,7 +276,7 @@ Settings are identical. Single member `WLapsAdmin`, action `add_restrict`.
 | Default notifications setting | `2` (Block by default) |
 | Notifications allowed for URLs | `*.microsoft.com`, `*.cloud.microsoft` |
 
-**Removed in OSB v3.8 (only in PROD v3.7):**
+**Removed in IIB v3.8 (only in SIB v3.7):**
 
 | Setting | Value |
 |---------|-------|
@@ -302,16 +286,16 @@ Settings are identical. Single member `WLapsAdmin`, action `add_restrict`.
 | New tab page search box | `redirect` |
 | Homepage is new tab page | `1` (Enabled, recommended) |
 
-> **Note:** Removing Google as the recommended search provider in v3.8 means PROD devices would revert to Bing if PROD is updated without re-adding these settings — confirm whether Google default is required.
+> **Note:** Removing Google as the recommended search provider in v3.8 means SIB devices would revert to Bing if updated without re-adding these settings — confirm whether Google default is required.
 
 ---
 
 ### ES - Windows Firewall - Firewall Configuration
 
-**Versions:** OSB v3.1 / PROD v3.1 — ⚠️ **8 value differences (all logging/auditing)**
+**Versions:** IIB v3.1 / SIB v3.1 — ⚠️ **8 value differences (all logging/auditing)**
 
-| Setting | OSB | PROD |
-|---------|-----|------|
+| Setting | IIB | SIB |
+|---------|-----|-----|
 | Audit: Filtering Platform Connection | `2` (Success auditing) | `0` (No auditing) |
 | Audit: Filtering Platform Packet Drop | `2` (Success auditing) | `0` (No auditing) |
 | Domain profile: Log dropped packets | `true` | `false` |
@@ -321,21 +305,21 @@ Settings are identical. Single member `WLapsAdmin`, action `add_restrict`.
 | Public profile: Log dropped packets | `true` | `false` |
 | Public profile: Log successful connections | `true` | `false` |
 
-> **Risk:** PROD has zero firewall logging across all profiles and no connection auditing. This significantly limits incident detection and investigation capability.
+> **Risk:** SIB has zero firewall logging across all profiles and no connection auditing. This significantly limits incident detection and investigation capability.
 
 ---
 
 ### ES - Windows Hello for Business - WHfB Configuration
 
-**Versions:** OSB v3.2 / PROD v3.2 — ⚠️ **1 value difference, extra user-scoped settings in PROD**
+**Versions:** IIB v3.2 / SIB v3.2 — ⚠️ **1 value difference, extra user-scoped settings in SIB**
 
 **Value differences:**
 
-| Setting | OSB | PROD |
-|---------|-----|------|
+| Setting | IIB | SIB |
+|---------|-----|-----|
 | Use certificate for on-prem auth | `false` (Cloud Kerberos / key trust) | `true` (Certificate trust) |
 
-**Only in PROD (user-scoped duplicates of device-scoped settings):**
+**Only in SIB (user-scoped duplicates of device-scoped settings):**
 
 | Setting | Value |
 |---------|-------|
@@ -344,74 +328,42 @@ Settings are identical. Single member `WLapsAdmin`, action `add_restrict`.
 | Require security device (user scope) | `true` |
 | Use WHfB (user scope) | `true` |
 
-> **Note:** The certificate vs key trust difference is an architectural choice — confirm whether PROD intentionally uses certificate trust. The user-scoped duplicate settings may cause redundancy or conflicts with the device-scoped settings in OSB.
+> **Note:** The certificate vs key trust difference is an architectural choice — confirm whether SIB intentionally uses certificate trust. The user-scoped duplicate settings may cause redundancy or conflicts with the device-scoped settings in IIB.
 
 ---
 
 ### ES - Windows LAPS - LAPS Configuration (24H2+)
 
-**Versions:** OSB v3.6 / PROD v3.6 — ⚠️ **1 value difference, 2 settings missing from PROD**
+**Versions:** IIB v3.6 / SIB v3.6 — ⚠️ **1 value difference, 2 settings missing from SIB**
 
 **Value differences:**
 
-| Setting | OSB | PROD |
-|---------|-----|------|
+| Setting | IIB | SIB |
+|---------|-----|-----|
 | Post-authentication reset delay | `1` hour | `0` (Immediate / disabled) |
 
-**Settings missing from PROD entirely:**
+**Settings missing from SIB entirely:**
 
-| Setting | OSB Value |
+| Setting | IIB Value |
 |---------|-----------|
 | Post-authentication actions | `11` (Reset password + sign out + terminate processes) |
 | Automatic account management | Enabled; targets built-in admin (`target_1`); account enabled; randomize name = false |
 
-> **Risk:** Missing post-authentication actions means PROD has no defined cleanup after LAPS credential use — the session may persist longer than intended. Missing automatic account management means PROD relies on the manually specified `WLapsAdmin` account rather than the built-in administrator.
-
----
-
-### SC - Credential Management - Passwordless
-
-**Versions:** OSB v3.3 / PROD v3.3 — ✅ **No functional differences**
-
-All 3 settings identical.
-
----
-
-### SC - Device Security - Audit and Event Logging
-
-**Versions:** OSB v3.7 / PROD v3.7 — ✅ **No functional differences**
-
-All 36 settings identical.
-
----
-
-### SC - Device Security - Config Refresh
-
-**Versions:** OSB v3.2 / PROD v3.2 — ✅ **No functional differences**
-
-Config Refresh enabled, cadence 30 minutes.
-
----
-
-### SC - Device Security - Enhanced Phishing Protection
-
-**Versions:** OSB v3.0 / PROD v3.0 — ⚠️ **Assignment difference only**
-
-All 4 settings identical. PROD is assigned to only 1 group (`ff220eee-...`) instead of the standard 2 — the second group (`de5711eb-...`) is missing.
+> **Risk:** Missing post-authentication actions means SIB has no defined cleanup after LAPS credential use — the session may persist longer than intended. Missing automatic account management means SIB relies on the manually specified `WLapsAdmin` account rather than the built-in administrator.
 
 ---
 
 ### SC - Device Security - Login and Lock Screen
 
-**Versions:** OSB v3.8 / PROD v3.1 — ⚠️ **Version gap with differences**
+**Versions:** IIB v3.8 / SIB v3.1 — ⚠️ **Version gap with differences**
 
 **Value differences:**
 
-| Setting | OSB v3.8 | PROD v3.1 |
-|---------|----------|-----------|
+| Setting | IIB v3.8 | SIB v3.1 |
+|---------|----------|----------|
 | Disable password reveal button | `0` (Allow reveal) | `1` (Hide reveal button) |
 
-**Only in PROD v3.1 (removed in OSB v3.8):**
+**Only in SIB v3.1 (removed in IIB v3.8):**
 
 | Setting | Value |
 |---------|-------|
@@ -419,114 +371,34 @@ All 4 settings identical. PROD is assigned to only 1 group (`ff220eee-...`) inst
 | Configure automatic restart sign-on | `1` (Enabled) |
 | ARSO sub-setting | `0` |
 
-> **Note:** ARSO was removed from OSB v3.8, likely due to security concerns (leaves session open post-reboot). Recommend updating PROD to v3.8.
-
----
-
-### SC - Device Security - Printing
-
-**Versions:** OSB v3.7 / PROD v3.7 — ✅ **No functional differences**
-
-All 8 settings identical.
-
----
-
-### SC - Device Security - Remote Desktop Services and RPC
-
-**Versions:** OSB v3.0 / PROD v3.0 — ✅ **No functional differences**
-
-All 9 settings identical.
-
----
-
-### SC - Device Security - Timezone
-
-**Versions:** OSB v3.4 / PROD v3.4 — ⚠️ **Assignment difference only**
-
-All 3 settings identical (NTP via `time.windows.com`, AllSync, poll interval 1024). PROD is assigned to **All Devices** rather than the standard two device groups — intentional for broad NTP coverage.
-
----
-
-### SC - Device Security - User Rights
-
-**Versions:** OSB v3.7 / PROD v3.7 — ✅ **No functional differences**
-
-All 25 settings identical.
+> **Note:** ARSO was removed from IIB v3.8, likely due to security concerns (leaves session open post-reboot). Recommend updating SIB to v3.8.
 
 ---
 
 ### SC - Device Security - U - Power and Device Lock
 
-**Versions:** OSB v3.6 / PROD v3.6 — ⚠️ **1 value difference**
+**Versions:** IIB v3.6 / SIB v3.6 — ⚠️ **1 value difference**
 
-| Setting | OSB | PROD |
-|---------|-----|------|
+| Setting | IIB | SIB |
+|---------|-----|-----|
 | Unattended sleep timeout (plugged in) | `900s` (15 min) | `2700s` (45 min) |
 
 > **Note:** Likely a deliberate UX change — 15 minutes is aggressive for a plugged-in device.
 
 ---
 
-### SC - Device Security - U - Windows Sandbox
-
-**Versions:** OSB v3.4 / PROD v3.4 — ⚠️ **Assignment difference only**
-
-All 6 settings identical. PROD is assigned to the two **device** groups (`ff220eee-...`, `de5711eb-...`) rather than the user group expected for a `U`-scoped policy.
-
----
-
-### SC - Internet Explorer (Legacy) - Security
-
-**Versions:** OSB v3.1.1 / PROD v3.1.1 — ✅ **No functional differences**
-
-All 118 settings identical.
-
----
-
-### SC - Microsoft Accounts - Configuration
-
-**Versions:** OSB v3.2 / PROD v3.2 — ✅ **No functional differences**
-
-All 5 settings identical.
-
----
-
-### SC - Microsoft Office - D - Updates
-
-**Versions:** OSB v3.0 / PROD v3.0 — ✅ **No functional differences**
-
-All 4 settings identical.
-
----
-
-### SC - Microsoft Office - U - Config and Experience
-
-**Versions:** OSB v3.6 / PROD v3.6 — ✅ **No functional differences**
-
-All 25 settings identical.
-
----
-
-### SC - Windows Hello for Business - Cloud Kerberos Trust
-
-**Versions:** OSB v3.5 / PROD v3.5 — ✅ **No functional differences**
-
-Both settings identical: Cloud Kerberos ticket retrieval enabled, `usecloudtrustforonpremauth = true`.
-
----
-
 ### SC - Windows User Experience - D - Feature Configuration
 
-**Versions:** OSB v3.8 / PROD v3.1 — ⚠️ **Version gap, settings missing from PROD**
+**Versions:** IIB v3.8 / SIB v3.1 — ⚠️ **Version gap, settings missing from SIB**
 
-No value conflicts on shared settings. Settings added in OSB v3.8 missing from PROD:
+No value conflicts on shared settings. Settings added in IIB v3.8 missing from SIB:
 
-| Setting | OSB v3.8 Value |
+| Setting | IIB v3.8 Value |
 |---------|----------------|
 | Disable share app promotions | `1` (Enabled) |
 | Do not use web results in Search | `0` (Web results allowed) |
 
-> **Note:** 7-version gap between OSB and PROD. Recommend updating PROD to v3.8.
+> **Note:** 7-version gap between IIB and SIB. Recommend updating SIB to v3.8.
 
 ---
 
@@ -536,20 +408,18 @@ The following policies have security-relevant differences that should be reviewe
 
 | Priority | Policy | Issue |
 |----------|--------|-------|
-| 🔴 High | ES - Windows Firewall - Firewall Configuration | All firewall logging disabled in PROD — no visibility into dropped packets or connections |
-| 🔴 High | SC - Microsoft Edge - D - Security | PROD (v3.7) allows SSL error bypass and SmartScreen overrides; update to v3.8 |
-| 🔴 High | SC - Microsoft Edge - U - Extensions | No extension blocklist in PROD — users can install any extension |
-| 🔴 High | SC - Device Security - Security Hardening | Wireless display projection without PIN allowed in PROD; LanmanWorkstation auditing missing; sudo not explicitly disabled |
-| 🟡 Medium | ES - Windows LAPS - LAPS Configuration (24H2+) | No post-authentication actions defined in PROD |
-| 🟡 Medium | SC - Device Security - Local Security Policies (24H2+) | UAC secure desktop disabled in PROD |
+| 🔴 High | ES - Windows Firewall - Firewall Configuration | All firewall logging disabled in SIB — no visibility into dropped packets or connections |
+| 🔴 High | SC - Microsoft Edge - D - Security | SIB (v3.7) allows SSL error bypass and SmartScreen overrides; update to v3.8 |
+| 🔴 High | SC - Microsoft Edge - U - Extensions | No extension blocklist in SIB — users can install any extension |
+| 🔴 High | SC - Device Security - Security Hardening | Wireless display projection without PIN allowed in SIB; LanmanWorkstation auditing missing; sudo not explicitly disabled |
+| 🟡 Medium | ES - Windows LAPS - LAPS Configuration (24H2+) | No post-authentication actions defined in SIB |
+| 🟡 Medium | SC - Device Security - Local Security Policies (24H2+) | UAC secure desktop disabled in SIB |
 | 🟡 Medium | ES - Windows Hello for Business - WHfB Configuration | Certificate vs key trust architectural difference; duplicate user-scoped settings |
-| 🟡 Medium | SC - Device Security - Login and Lock Screen | PROD on v3.1; ARSO settings present that were removed from v3.8 |
-| 🟡 Medium | SC - Device Security - Location and Privacy | PROD significantly more permissive on location access |
-| 🟡 Medium | SC - Microsoft Edge - U - Password Management | Edge password manager disabled in PROD with no alternative controls |
-| 🟢 Low | SC - Device Security - Windows Subsystem for Linux | WSL custom networking user-configurable in PROD |
-| 🟢 Low | SC - Microsoft Edge - U - Profiles, Sign-In and Sync | Sign-in not forced in PROD; users can add profiles |
-| 🟢 Low | SC - Microsoft Edge - U - User Experience | PROD on v3.7; missing URL blocklist for apps.microsoft.com and notification controls |
-| 🟢 Low | SC - Windows User Experience - D - Feature Configuration | PROD on v3.1 (7-version gap); missing 2 minor settings |
-| 🟢 Low | SC - Device Security - Enhanced Phishing Protection | Missing 1 of 2 assignment groups in PROD |
-| 🟢 Low | SC - Device Security - U - Windows Sandbox | Assigned to device groups instead of user group |
-| 🟢 Low | SC - Device Security - U - Power and Device Lock | Sleep timeout tripled in PROD (likely intentional UX change) |
+| 🟡 Medium | SC - Device Security - Login and Lock Screen | SIB on v3.1; ARSO settings present that were removed from v3.8 |
+| 🟡 Medium | SC - Device Security - Location and Privacy | SIB significantly more permissive on location access |
+| 🟡 Medium | SC - Microsoft Edge - U - Password Management | Edge password manager disabled in SIB with no alternative controls |
+| 🟢 Low | SC - Device Security - Windows Subsystem for Linux | WSL custom networking user-configurable in SIB |
+| 🟢 Low | SC - Microsoft Edge - U - Profiles, Sign-In and Sync | Sign-in not forced in SIB; users can add profiles |
+| 🟢 Low | SC - Microsoft Edge - U - User Experience | SIB on v3.7; missing URL blocklist for apps.microsoft.com and notification controls |
+| 🟢 Low | SC - Windows User Experience - D - Feature Configuration | SIB on v3.1 (7-version gap); missing 2 minor settings |
+| 🟢 Low | SC - Device Security - U - Power and Device Lock | Sleep timeout tripled in SIB (likely intentional UX change) |
