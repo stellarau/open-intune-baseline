@@ -98,13 +98,15 @@ This section summarises the functional differences between the upstream OpenIntu
 
 ### SC - Device Security - Local Security Policies (24H2+)
 
-**Versions:** OIB v3.6 / SIB v3.6 — ⚠️ **1 value difference**
+**Versions:** OIB v3.6 / SIB v3.6 — ⚠️ **3 value differences**
 
 | Setting | OIB | SIB |
 |---------|-----|-----|
+| UAC: Behavior of elevation prompt for administrators | `2` (Prompt for consent — secure desktop) | `4` (Prompt for consent — standard desktop) |
+| UAC: Behavior of elevation prompt for standard users | `1` (Prompt for credentials — secure desktop) | `3` (Prompt for credentials — standard desktop) |
 | UAC: Switch to secure desktop when prompting for elevation | `1` (Enabled) | `0` (Disabled) |
 
-> **Risk:** SIB allows UAC prompts on the standard desktop, which is more susceptible to spoofing than the secure desktop.
+> **Risk:** SIB disables the secure desktop for all UAC prompts. All three settings are consistent — UAC prompts appear on the standard desktop rather than the isolated secure desktop, which is more susceptible to spoofing by malicious foreground applications.
 
 ---
 
@@ -389,7 +391,7 @@ The following policies have security-relevant differences that should be reviewe
 | 🔴 High | SC - Microsoft Edge - U - Extensions | No extension blocklist in SIB — users can install any extension |
 | 🔴 High | SC - Device Security - Security Hardening | Wireless display projection without PIN allowed in SIB; LanmanWorkstation auditing missing; sudo not explicitly disabled |
 | 🟡 Medium | ES - Windows LAPS - LAPS Configuration (24H2+) | Post-authentication actions not configured in SIB; reset delay set to 0 (immediate) |
-| 🟡 Medium | SC - Device Security - Local Security Policies (24H2+) | UAC secure desktop disabled in SIB |
+| 🟡 Medium | SC - Device Security - Local Security Policies (24H2+) | UAC secure desktop disabled in SIB; all three UAC prompt settings use standard desktop instead |
 | 🟡 Medium | SC - Device Security - Login and Lock Screen | SIB on v3.1; ARSO settings present that were removed from v3.8 |
 | 🟡 Medium | SC - Device Security - Location and Privacy | SIB significantly more permissive on location access |
 | 🟡 Medium | SC - Microsoft Edge - U - Password Management | Edge password manager disabled in SIB with no alternative controls |
