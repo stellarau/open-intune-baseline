@@ -26,7 +26,7 @@ The table below lists all policies from the upstream [OpenIntuneBaseline](https:
 | Win - OIB - ES - Windows Firewall - D - Firewall Configuration - v3.1 | ✏️ |
 | Win - OIB - ES - Windows Firewall - D - Security Rules - v3.8 | ✅ |
 | Win - OIB - ES - Local Group Membership - D - Local Administrators - v3.7 | ✅ |
-| Win - OIB - ES - Windows Hello for Business - D - WHfB Configuration - v3.2 | ✏️ |
+| Win - OIB - ES - Windows Hello for Business - D - WHfB Configuration - v3.2 | ✅ |
 | Win - OIB - ES - Windows LAPS - D - LAPS Configuration (24H2+) - v3.6 | ✏️ |
 | Win - OIB - ES - Windows LAPS - D - LAPS Configuration - v3.1 | ❌ |
 | **Settings Catalog** | |
@@ -309,29 +309,6 @@ This section summarises the functional differences between the upstream OpenIntu
 
 ---
 
-### ES - Windows Hello for Business - WHfB Configuration
-
-**Versions:** OIB v3.2 / SIB v3.2 — ⚠️ **1 value difference, extra user-scoped settings in SIB**
-
-**Value differences:**
-
-| Setting | OIB | SIB |
-|---------|-----|-----|
-| Use certificate for on-prem auth | `false` (Cloud Kerberos / key trust) | `true` (Certificate trust) |
-
-**Only in SIB (user-scoped duplicates of device-scoped settings):**
-
-| Setting | Value |
-|---------|-------|
-| Enable PIN recovery (user scope) | `true` |
-| Minimum PIN length (user scope) | `6` |
-| Require security device (user scope) | `true` |
-| Use WHfB (user scope) | `true` |
-
-> **Note:** The certificate vs key trust difference is an architectural choice — confirm whether SIB intentionally uses certificate trust. The user-scoped duplicate settings may cause redundancy or conflicts with the device-scoped settings in OIB.
-
----
-
 ### ES - Windows LAPS - LAPS Configuration (24H2+)
 
 **Versions:** OIB v3.6 / SIB v3.6 — ⚠️ **1 value difference, 2 settings missing from SIB**
@@ -414,7 +391,6 @@ The following policies have security-relevant differences that should be reviewe
 | 🔴 High | SC - Device Security - Security Hardening | Wireless display projection without PIN allowed in SIB; LanmanWorkstation auditing missing; sudo not explicitly disabled |
 | 🟡 Medium | ES - Windows LAPS - LAPS Configuration (24H2+) | No post-authentication actions defined in SIB |
 | 🟡 Medium | SC - Device Security - Local Security Policies (24H2+) | UAC secure desktop disabled in SIB |
-| 🟡 Medium | ES - Windows Hello for Business - WHfB Configuration | Certificate vs key trust architectural difference; duplicate user-scoped settings |
 | 🟡 Medium | SC - Device Security - Login and Lock Screen | SIB on v3.1; ARSO settings present that were removed from v3.8 |
 | 🟡 Medium | SC - Device Security - Location and Privacy | SIB significantly more permissive on location access |
 | 🟡 Medium | SC - Microsoft Edge - U - Password Management | Edge password manager disabled in SIB with no alternative controls |
