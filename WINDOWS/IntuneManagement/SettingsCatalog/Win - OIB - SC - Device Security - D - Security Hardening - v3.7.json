@@ -17,7 +17,7 @@
   "roleScopeTagIds": [
     "0"
   ],
-  "settingCount": 80,
+  "settingCount": 76,
   "technologies@odata.type": "#microsoft.graph.deviceManagementConfigurationTechnologies",
   "technologies": "mdm",
   "id": "99ff7a9a-e27e-4217-8325-dfebd2e9cfe0",
@@ -318,22 +318,9 @@
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_admx_wcm_wcm_minimizeconnections_1",
+          "value": "device_vendor_msft_policy_config_admx_wcm_wcm_minimizeconnections_0",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
-          "children": [
-            {
-              "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-              "settingDefinitionId": "device_vendor_msft_policy_config_admx_wcm_wcm_minimizeconnections_wcm_minimizeconnections_options",
-              "settingInstanceTemplateReference": null,
-              "choiceSettingValue": {
-                "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
-                "settingValueTemplateReference": null,
-                "value": "device_vendor_msft_policy_config_admx_wcm_wcm_minimizeconnections_wcm_minimizeconnections_options_3",
-                "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
-                "children": []
-              }
-            }
-          ]
+          "children": []
         }
       },
       "settingDefinitions@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('11')/settingDefinitions/$ref",
@@ -351,7 +338,7 @@
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_windowsconnectionmanager_prohitconnectiontonondomainnetworkswhenconnectedtodomainauthenticatednetwork_1",
+          "value": "device_vendor_msft_policy_config_windowsconnectionmanager_prohitconnectiontonondomainnetworkswhenconnectedtodomainauthenticatednetwork_0",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1304,12 +1291,12 @@
       "id": "53",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_lanmanworkstation_auditinsecureguestlogon",
+        "settingDefinitionId": "device_vendor_msft_policy_config_lanmanworkstation_enableinsecureguestlogons",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_lanmanworkstation_auditinsecureguestlogon_1",
+          "value": "device_vendor_msft_policy_config_lanmanworkstation_enableinsecureguestlogons_0",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1324,12 +1311,12 @@
       "id": "54",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_lanmanworkstation_auditserverdoesnotsupportencryption",
+        "settingDefinitionId": "device_vendor_msft_policy_config_lanmanworkstation_enablemailslots",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_lanmanworkstation_auditserverdoesnotsupportencryption_1",
+          "value": "device_vendor_msft_policy_config_lanmanworkstation_enablemailslots_0",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1344,12 +1331,12 @@
       "id": "55",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_lanmanworkstation_auditserverdoesnotsupportsigning",
+        "settingDefinitionId": "device_vendor_msft_policy_config_lanmanworkstation_maxsmb2dialect",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_lanmanworkstation_auditserverdoesnotsupportsigning_1",
+          "value": "device_vendor_msft_policy_config_lanmanworkstation_maxsmb2dialect_785",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1364,12 +1351,12 @@
       "id": "56",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_lanmanworkstation_enableinsecureguestlogons",
+        "settingDefinitionId": "device_vendor_msft_policy_config_lanmanworkstation_minsmb2dialect",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_lanmanworkstation_enableinsecureguestlogons_0",
+          "value": "device_vendor_msft_policy_config_lanmanworkstation_minsmb2dialect_768",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1384,12 +1371,12 @@
       "id": "57",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_lanmanworkstation_enablemailslots",
+        "settingDefinitionId": "device_vendor_msft_policy_config_lanmanworkstation_requireencryption",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_lanmanworkstation_enablemailslots_0",
+          "value": "device_vendor_msft_policy_config_lanmanworkstation_requireencryption_0",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1404,12 +1391,12 @@
       "id": "58",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_lanmanworkstation_maxsmb2dialect",
+        "settingDefinitionId": "device_vendor_msft_policy_config_privacy_disableprivacyexperience",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_lanmanworkstation_maxsmb2dialect_785",
+          "value": "device_vendor_msft_policy_config_privacy_disableprivacyexperience_1",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1424,12 +1411,12 @@
       "id": "59",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_lanmanworkstation_minsmb2dialect",
+        "settingDefinitionId": "device_vendor_msft_policy_config_security_allowaddprovisioningpackage",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_lanmanworkstation_minsmb2dialect_768",
+          "value": "device_vendor_msft_policy_config_security_allowaddprovisioningpackage_0",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1444,12 +1431,12 @@
       "id": "60",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_lanmanworkstation_requireencryption",
+        "settingDefinitionId": "device_vendor_msft_policy_config_security_allowremoveprovisioningpackage",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_lanmanworkstation_requireencryption_0",
+          "value": "device_vendor_msft_policy_config_security_allowremoveprovisioningpackage_0",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1464,12 +1451,12 @@
       "id": "61",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_privacy_disableprivacyexperience",
+        "settingDefinitionId": "device_vendor_msft_policy_config_security_requireretrievehealthcertificateonboot",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_privacy_disableprivacyexperience_1",
+          "value": "device_vendor_msft_policy_config_security_requireretrievehealthcertificateonboot_1",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1483,15 +1470,13 @@
       "@odata.editLink": "deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('62')",
       "id": "62",
       "settingInstance": {
-        "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_security_allowaddprovisioningpackage",
+        "@odata.type": "#microsoft.graph.deviceManagementConfigurationSimpleSettingInstance",
+        "settingDefinitionId": "device_vendor_msft_policy_config_settings_pagevisibilitylist",
         "settingInstanceTemplateReference": null,
-        "choiceSettingValue": {
-          "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
+        "simpleSettingValue": {
+          "@odata.type": "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_security_allowaddprovisioningpackage_0",
-          "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
-          "children": []
+          "value": "hide:gaming-gamebar;gaming-gamedvr;gaming-broadcasting;gaming-gamemode;gaming-xboxnetworking"
         }
       },
       "settingDefinitions@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('62')/settingDefinitions/$ref",
@@ -1504,12 +1489,12 @@
       "id": "63",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_security_allowremoveprovisioningpackage",
+        "settingDefinitionId": "device_vendor_msft_policy_config_smartscreen_enablesmartscreeninshell",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_security_allowremoveprovisioningpackage_0",
+          "value": "device_vendor_msft_policy_config_smartscreen_enablesmartscreeninshell_1",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1524,12 +1509,12 @@
       "id": "64",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_security_requireretrievehealthcertificateonboot",
+        "settingDefinitionId": "device_vendor_msft_policy_config_smartscreen_preventoverrideforfilesinshell",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_security_requireretrievehealthcertificateonboot_1",
+          "value": "device_vendor_msft_policy_config_smartscreen_preventoverrideforfilesinshell_1",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1543,13 +1528,15 @@
       "@odata.editLink": "deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('65')",
       "id": "65",
       "settingInstance": {
-        "@odata.type": "#microsoft.graph.deviceManagementConfigurationSimpleSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_settings_pagevisibilitylist",
+        "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+        "settingDefinitionId": "device_vendor_msft_policy_config_systemservices_configurexboxaccessorymanagementservicestartupmode",
         "settingInstanceTemplateReference": null,
-        "simpleSettingValue": {
-          "@odata.type": "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+        "choiceSettingValue": {
+          "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "hide:gaming-gamebar;gaming-gamedvr;gaming-broadcasting;gaming-gamemode;gaming-xboxnetworking"
+          "value": "device_vendor_msft_policy_config_systemservices_configurexboxaccessorymanagementservicestartupmode_4",
+          "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
+          "children": []
         }
       },
       "settingDefinitions@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('65')/settingDefinitions/$ref",
@@ -1562,12 +1549,12 @@
       "id": "66",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_smartscreen_enablesmartscreeninshell",
+        "settingDefinitionId": "device_vendor_msft_policy_config_systemservices_configurexboxliveauthmanagerservicestartupmode",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_smartscreen_enablesmartscreeninshell_1",
+          "value": "device_vendor_msft_policy_config_systemservices_configurexboxliveauthmanagerservicestartupmode_4",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1582,12 +1569,12 @@
       "id": "67",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_smartscreen_preventoverrideforfilesinshell",
+        "settingDefinitionId": "device_vendor_msft_policy_config_systemservices_configurexboxlivegamesaveservicestartupmode",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_smartscreen_preventoverrideforfilesinshell_1",
+          "value": "device_vendor_msft_policy_config_systemservices_configurexboxlivegamesaveservicestartupmode_4",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1602,12 +1589,12 @@
       "id": "68",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_sudo_enablesudo",
+        "settingDefinitionId": "device_vendor_msft_policy_config_systemservices_configurexboxlivenetworkingservicestartupmode",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_sudo_enablesudo_0",
+          "value": "device_vendor_msft_policy_config_systemservices_configurexboxlivenetworkingservicestartupmode_4",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1622,12 +1609,12 @@
       "id": "69",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_systemservices_configurexboxaccessorymanagementservicestartupmode",
+        "settingDefinitionId": "device_vendor_msft_policy_config_taskscheduler_enablexboxgamesavetask",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_systemservices_configurexboxaccessorymanagementservicestartupmode_4",
+          "value": "device_vendor_msft_policy_config_taskscheduler_enablexboxgamesavetask_0",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1642,12 +1629,12 @@
       "id": "70",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_systemservices_configurexboxliveauthmanagerservicestartupmode",
+        "settingDefinitionId": "device_vendor_msft_policy_config_wifi_allowautoconnecttowifisensehotspots",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_systemservices_configurexboxliveauthmanagerservicestartupmode_4",
+          "value": "device_vendor_msft_policy_config_wifi_allowautoconnecttowifisensehotspots_0",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1662,12 +1649,12 @@
       "id": "71",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_systemservices_configurexboxlivegamesaveservicestartupmode",
+        "settingDefinitionId": "device_vendor_msft_policy_config_wifi_allowinternetsharing",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_systemservices_configurexboxlivegamesaveservicestartupmode_4",
+          "value": "device_vendor_msft_policy_config_wifi_allowinternetsharing_0",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1682,12 +1669,12 @@
       "id": "72",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_systemservices_configurexboxlivenetworkingservicestartupmode",
+        "settingDefinitionId": "device_vendor_msft_policy_config_windowsinkworkspace_allowwindowsinkworkspace",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_systemservices_configurexboxlivenetworkingservicestartupmode_4",
+          "value": "device_vendor_msft_policy_config_windowsinkworkspace_allowwindowsinkworkspace_1",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1702,12 +1689,12 @@
       "id": "73",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_taskscheduler_enablexboxgamesavetask",
+        "settingDefinitionId": "device_vendor_msft_policy_config_wirelessdisplay_allowprojectionfrompc",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_taskscheduler_enablexboxgamesavetask_0",
+          "value": "device_vendor_msft_policy_config_wirelessdisplay_allowprojectionfrompc_1",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1722,12 +1709,12 @@
       "id": "74",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_wifi_allowautoconnecttowifisensehotspots",
+        "settingDefinitionId": "device_vendor_msft_policy_config_wirelessdisplay_allowprojectiontopc",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_wifi_allowautoconnecttowifisensehotspots_0",
+          "value": "device_vendor_msft_policy_config_wirelessdisplay_allowprojectiontopc_1",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -1742,98 +1729,18 @@
       "id": "75",
       "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_wifi_allowinternetsharing",
+        "settingDefinitionId": "device_vendor_msft_policy_config_wirelessdisplay_requirepinforpairing",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_wifi_allowinternetsharing_0",
+          "value": "device_vendor_msft_policy_config_wirelessdisplay_requirepinforpairing_0",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
       },
       "settingDefinitions@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('75')/settingDefinitions/$ref",
       "settingDefinitions@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('75')/settingDefinitions"
-    },
-    {
-      "@odata.type": "#microsoft.graph.deviceManagementConfigurationSetting",
-      "@odata.id": "deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('76')",
-      "@odata.editLink": "deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('76')",
-      "id": "76",
-      "settingInstance": {
-        "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_windowsinkworkspace_allowwindowsinkworkspace",
-        "settingInstanceTemplateReference": null,
-        "choiceSettingValue": {
-          "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
-          "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_windowsinkworkspace_allowwindowsinkworkspace_1",
-          "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
-          "children": []
-        }
-      },
-      "settingDefinitions@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('76')/settingDefinitions/$ref",
-      "settingDefinitions@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('76')/settingDefinitions"
-    },
-    {
-      "@odata.type": "#microsoft.graph.deviceManagementConfigurationSetting",
-      "@odata.id": "deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('77')",
-      "@odata.editLink": "deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('77')",
-      "id": "77",
-      "settingInstance": {
-        "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_wirelessdisplay_allowprojectionfrompc",
-        "settingInstanceTemplateReference": null,
-        "choiceSettingValue": {
-          "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
-          "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_wirelessdisplay_allowprojectionfrompc_1",
-          "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
-          "children": []
-        }
-      },
-      "settingDefinitions@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('77')/settingDefinitions/$ref",
-      "settingDefinitions@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('77')/settingDefinitions"
-    },
-    {
-      "@odata.type": "#microsoft.graph.deviceManagementConfigurationSetting",
-      "@odata.id": "deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('78')",
-      "@odata.editLink": "deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('78')",
-      "id": "78",
-      "settingInstance": {
-        "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_wirelessdisplay_allowprojectiontopc",
-        "settingInstanceTemplateReference": null,
-        "choiceSettingValue": {
-          "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
-          "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_wirelessdisplay_allowprojectiontopc_0",
-          "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
-          "children": []
-        }
-      },
-      "settingDefinitions@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('78')/settingDefinitions/$ref",
-      "settingDefinitions@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('78')/settingDefinitions"
-    },
-    {
-      "@odata.type": "#microsoft.graph.deviceManagementConfigurationSetting",
-      "@odata.id": "deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('79')",
-      "@odata.editLink": "deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('79')",
-      "id": "79",
-      "settingInstance": {
-        "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_wirelessdisplay_requirepinforpairing",
-        "settingInstanceTemplateReference": null,
-        "choiceSettingValue": {
-          "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
-          "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_wirelessdisplay_requirepinforpairing_1",
-          "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
-          "children": []
-        }
-      },
-      "settingDefinitions@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('79')/settingDefinitions/$ref",
-      "settingDefinitions@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('79')/settingDefinitions"
     }
   ],
   "#microsoft.graph.assign": {
