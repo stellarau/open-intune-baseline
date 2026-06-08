@@ -39,7 +39,7 @@ The table below lists all policies from the upstream [OpenIntuneBaseline](https:
 | Win - OIB - SC - Device Security - D - Local Security Policies (24H2+) - v3.6 | ✏️ |
 | Win - OIB - SC - Device Security - D - Local Security Policies - v3.0 | ❌ |
 | Win - OIB - SC - Device Security - D - Location and Privacy - v3.2 | ✏️ |
-| Win - OIB - SC - Device Security - D - Login and Lock Screen - v3.8 | ✏️ |
+| Win - OIB - SC - Device Security - D - Login and Lock Screen - v3.8 | ✅ |
 | Win - OIB - SC - Device Security - D - Printing - v3.7 | ✅ |
 | Win - OIB - SC - Device Security - D - Remote Desktop Services and RPC - v3.0 | ✅ |
 | Win - OIB - SC - Device Security - D - Script File Associations - v3.4 | ❌ |
@@ -331,28 +331,6 @@ This section summarises the functional differences between the upstream OpenIntu
 
 ---
 
-### SC - Device Security - Login and Lock Screen
-
-**Versions:** OIB v3.8 / SIB v3.1 — ⚠️ **Version gap with differences**
-
-**Value differences:**
-
-| Setting | OIB v3.8 | SIB v3.1 |
-|---------|----------|----------|
-| Disable password reveal button | `0` (Allow reveal) | `1` (Hide reveal button) |
-
-**Only in SIB v3.1 (removed in OIB v3.8):**
-
-| Setting | Value |
-|---------|-------|
-| Allow automatic restart sign-on (ARSO) | `1` (Enabled) |
-| Configure automatic restart sign-on | `1` (Enabled) |
-| ARSO sub-setting | `0` |
-
-> **Note:** ARSO was removed from OIB v3.8, likely due to security concerns (leaves session open post-reboot). Recommend updating SIB to v3.8.
-
----
-
 ### SC - Device Security - U - Power and Device Lock
 
 **Versions:** OIB v3.6 / SIB v3.6 — ⚠️ **1 value difference**
@@ -392,7 +370,6 @@ The following policies have security-relevant differences that should be reviewe
 | 🔴 High | SC - Device Security - Security Hardening | Wireless display projection without PIN allowed in SIB; LanmanWorkstation auditing missing; sudo not explicitly disabled |
 | 🟡 Medium | ES - Windows LAPS - LAPS Configuration (24H2+) | Post-authentication actions not configured in SIB; reset delay set to 0 (immediate) |
 | 🟡 Medium | SC - Device Security - Local Security Policies (24H2+) | UAC secure desktop disabled in SIB; all three UAC prompt settings use standard desktop instead |
-| 🟡 Medium | SC - Device Security - Login and Lock Screen | SIB on v3.1; ARSO settings present that were removed from v3.8 |
 | 🟡 Medium | SC - Device Security - Location and Privacy | SIB significantly more permissive on location access |
 | 🟡 Medium | SC - Microsoft Edge - U - Password Management | Edge password manager disabled in SIB with no alternative controls |
 | 🟢 Low | SC - Device Security - Windows Subsystem for Linux | WSL custom networking user-configurable in SIB |
