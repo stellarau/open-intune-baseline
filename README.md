@@ -96,6 +96,45 @@ This section summarises the functional differences between the upstream OpenIntu
 
 ---
 
+### ES - Windows Firewall - Firewall Configuration
+
+**Versions:** OIB v3.1 / SIB v3.1 — ⚠️ **8 value differences (all logging/auditing)**
+
+| Setting | OIB | SIB |
+|---------|-----|-----|
+| Audit: Filtering Platform Connection | `2` (Success auditing) | `0` (No auditing) |
+| Audit: Filtering Platform Packet Drop | `2` (Success auditing) | `0` (No auditing) |
+| Domain profile: Log dropped packets | `true` | `false` |
+| Domain profile: Log successful connections | `true` | `false` |
+| Private profile: Log dropped packets | `true` | `false` |
+| Private profile: Log successful connections | `true` | `false` |
+| Public profile: Log dropped packets | `true` | `false` |
+| Public profile: Log successful connections | `true` | `false` |
+
+> **Risk:** SIB has zero firewall logging across all profiles and no connection auditing. This significantly limits incident detection and investigation capability.
+
+---
+
+### ES - Windows LAPS - LAPS Configuration (24H2+)
+
+**Versions:** OIB v3.6 / SIB v3.6 — ⚠️ **1 value difference, 1 setting missing from SIB**
+
+**Value differences:**
+
+| Setting | OIB | SIB |
+|---------|-----|-----|
+| Post-authentication reset delay | `1` hour | `0` (Immediate / disabled) |
+
+**Settings missing from SIB entirely:**
+
+| Setting | OIB Value |
+|---------|-----------|
+| Post-authentication actions | `11` (Reset password + sign out + terminate processes) |
+
+> **Risk:** Missing post-authentication actions means SIB has no defined cleanup after LAPS credential use — the session may persist longer than intended.
+
+---
+
 ### SC - Device Security - Local Security Policies (24H2+)
 
 **Versions:** OIB v3.6 / SIB v3.6 — ⚠️ **3 value differences**
@@ -160,6 +199,18 @@ This section summarises the functional differences between the upstream OpenIntu
 | WSL: Custom networking user setting configurable | `0` (Disabled) | `1` (Enabled) |
 
 > **Note:** SIB allows users to configure custom WSL networking. May be intentional for developer users.
+
+---
+
+### SC - Device Security - U - Power and Device Lock
+
+**Versions:** OIB v3.6 / SIB v3.6 — ⚠️ **1 value difference**
+
+| Setting | OIB | SIB |
+|---------|-----|-----|
+| Unattended sleep timeout (plugged in) | `900s` (15 min) | `2700s` (45 min) |
+
+> **Note:** Likely a deliberate UX change — 15 minutes is aggressive for a plugged-in device.
 
 ---
 
@@ -269,57 +320,6 @@ This section summarises the functional differences between the upstream OpenIntu
 | Homepage is new tab page | `1` (Enabled, recommended) |
 
 > **Note:** SIB retains Google as the recommended default search provider (removed from OIB v3.8). The OIB URL blocklist for apps.microsoft.com and notification controls are not deployed in SIB.
-
----
-
-### ES - Windows Firewall - Firewall Configuration
-
-**Versions:** OIB v3.1 / SIB v3.1 — ⚠️ **8 value differences (all logging/auditing)**
-
-| Setting | OIB | SIB |
-|---------|-----|-----|
-| Audit: Filtering Platform Connection | `2` (Success auditing) | `0` (No auditing) |
-| Audit: Filtering Platform Packet Drop | `2` (Success auditing) | `0` (No auditing) |
-| Domain profile: Log dropped packets | `true` | `false` |
-| Domain profile: Log successful connections | `true` | `false` |
-| Private profile: Log dropped packets | `true` | `false` |
-| Private profile: Log successful connections | `true` | `false` |
-| Public profile: Log dropped packets | `true` | `false` |
-| Public profile: Log successful connections | `true` | `false` |
-
-> **Risk:** SIB has zero firewall logging across all profiles and no connection auditing. This significantly limits incident detection and investigation capability.
-
----
-
-### ES - Windows LAPS - LAPS Configuration (24H2+)
-
-**Versions:** OIB v3.6 / SIB v3.6 — ⚠️ **1 value difference, 1 setting missing from SIB**
-
-**Value differences:**
-
-| Setting | OIB | SIB |
-|---------|-----|-----|
-| Post-authentication reset delay | `1` hour | `0` (Immediate / disabled) |
-
-**Settings missing from SIB entirely:**
-
-| Setting | OIB Value |
-|---------|-----------|
-| Post-authentication actions | `11` (Reset password + sign out + terminate processes) |
-
-> **Risk:** Missing post-authentication actions means SIB has no defined cleanup after LAPS credential use — the session may persist longer than intended.
-
----
-
-### SC - Device Security - U - Power and Device Lock
-
-**Versions:** OIB v3.6 / SIB v3.6 — ⚠️ **1 value difference**
-
-| Setting | OIB | SIB |
-|---------|-----|-----|
-| Unattended sleep timeout (plugged in) | `900s` (15 min) | `2700s` (45 min) |
-
-> **Note:** Likely a deliberate UX change — 15 minutes is aggressive for a plugged-in device.
 
 ---
 
