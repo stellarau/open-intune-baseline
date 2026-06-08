@@ -1,0 +1,170 @@
+{
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#deviceManagement/configurationPolicies(assignments(),settings())/$entity",
+  "@odata.type": "#microsoft.graph.deviceManagementConfigurationPolicy",
+  "@odata.id": "deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')",
+  "@odata.editLink": "deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')",
+  "createdDateTime@odata.type": "#DateTimeOffset",
+  "createdDateTime": "2026-01-18T00:09:39.2339755Z",
+  "creationSource": null,
+  "description": "Modified OIB policy for Google Chrome:\nWin - OIB - SC - Microsoft Edge - D - Updates - v3.6",
+  "lastModifiedDateTime@odata.type": "#DateTimeOffset",
+  "lastModifiedDateTime": "2026-01-18T04:57:22.8935546Z",
+  "name": "Win - SIB - SC - Google Chrome - D - Updates - v3.6",
+  "platforms@odata.type": "#microsoft.graph.deviceManagementConfigurationPlatforms",
+  "platforms": "windows10",
+  "priorityMetaData": null,
+  "roleScopeTagIds@odata.type": "#Collection(String)",
+  "roleScopeTagIds": [
+    "0"
+  ],
+  "settingCount": 3,
+  "technologies@odata.type": "#microsoft.graph.deviceManagementConfigurationTechnologies",
+  "technologies": "mdm",
+  "id": "fcf7ef3d-8a2f-43e9-9760-8ff76a303a12",
+  "templateReference": {
+    "@odata.type": "#microsoft.graph.deviceManagementConfigurationPolicyTemplateReference",
+    "templateId": "",
+    "templateFamily@odata.type": "#microsoft.graph.deviceManagementConfigurationTemplateFamily",
+    "templateFamily": "none",
+    "templateDisplayName": null,
+    "templateDisplayVersion": null
+  },
+  "assignments@odata.context": "https://graph.microsoft.com/beta/$metadata#deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/assignments",
+  "assignments@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/assignments/$ref",
+  "assignments@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/assignments",
+  "assignments": [
+    {
+      "id": "fcf7ef3d-8a2f-43e9-9760-8ff76a303a12_ff220eee-6e0c-4cc6-a79a-eebb24160216",
+      "source": "direct",
+      "sourceId": "fcf7ef3d-8a2f-43e9-9760-8ff76a303a12",
+      "target": {
+        "@odata.type": "#microsoft.graph.groupAssignmentTarget",
+        "deviceAndAppManagementAssignmentFilterId": null,
+        "deviceAndAppManagementAssignmentFilterType": "none",
+        "groupId": "ff220eee-6e0c-4cc6-a79a-eebb24160216"
+      }
+    }
+  ],
+  "settings@odata.context": "https://graph.microsoft.com/beta/$metadata#deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/settings",
+  "settings@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/settings/$ref",
+  "settings@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/settings",
+  "settings": [
+    {
+      "@odata.type": "#microsoft.graph.deviceManagementConfigurationSetting",
+      "@odata.id": "deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/settings('0')",
+      "@odata.editLink": "deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/settings('0')",
+      "id": "0",
+      "settingInstance": {
+        "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+        "settingDefinitionId": "device_vendor_msft_policy_config_chromeintunev1~policy~googlechrome_componentupdatesenabled",
+        "settingInstanceTemplateReference": null,
+        "auditRuleInformation": null,
+        "choiceSettingValue": {
+          "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
+          "settingValueTemplateReference": null,
+          "value": "device_vendor_msft_policy_config_chromeintunev1~policy~googlechrome_componentupdatesenabled_1",
+          "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
+          "children": []
+        }
+      },
+      "settingDefinitions@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/settings('0')/settingDefinitions/$ref",
+      "settingDefinitions@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/settings('0')/settingDefinitions"
+    },
+    {
+      "@odata.type": "#microsoft.graph.deviceManagementConfigurationSetting",
+      "@odata.id": "deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/settings('1')",
+      "@odata.editLink": "deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/settings('1')",
+      "id": "1",
+      "settingInstance": {
+        "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+        "settingDefinitionId": "device_vendor_msft_policy_config_chromeintunev1~policy~googlechrome_relaunchnotification",
+        "settingInstanceTemplateReference": null,
+        "auditRuleInformation": null,
+        "choiceSettingValue": {
+          "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
+          "settingValueTemplateReference": null,
+          "value": "device_vendor_msft_policy_config_chromeintunev1~policy~googlechrome_relaunchnotification_1",
+          "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
+          "children": [
+            {
+              "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+              "settingDefinitionId": "device_vendor_msft_policy_config_chromeintunev1~policy~googlechrome_relaunchnotification_relaunchnotification",
+              "settingInstanceTemplateReference": null,
+              "auditRuleInformation": null,
+              "choiceSettingValue": {
+                "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
+                "settingValueTemplateReference": null,
+                "value": "device_vendor_msft_policy_config_chromeintunev1~policy~googlechrome_relaunchnotification_relaunchnotification_2",
+                "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
+                "children": []
+              }
+            }
+          ]
+        }
+      },
+      "settingDefinitions@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/settings('1')/settingDefinitions/$ref",
+      "settingDefinitions@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/settings('1')/settingDefinitions"
+    },
+    {
+      "@odata.type": "#microsoft.graph.deviceManagementConfigurationSetting",
+      "@odata.id": "deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/settings('2')",
+      "@odata.editLink": "deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/settings('2')",
+      "id": "2",
+      "settingInstance": {
+        "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+        "settingDefinitionId": "device_vendor_msft_policy_config_chromeintunev1~policy~googlechrome_relaunchnotificationperiod",
+        "settingInstanceTemplateReference": null,
+        "auditRuleInformation": null,
+        "choiceSettingValue": {
+          "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
+          "settingValueTemplateReference": null,
+          "value": "device_vendor_msft_policy_config_chromeintunev1~policy~googlechrome_relaunchnotificationperiod_1",
+          "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
+          "children": [
+            {
+              "@odata.type": "#microsoft.graph.deviceManagementConfigurationSimpleSettingInstance",
+              "settingDefinitionId": "device_vendor_msft_policy_config_chromeintunev1~policy~googlechrome_relaunchnotificationperiod_relaunchnotificationperiod",
+              "settingInstanceTemplateReference": null,
+              "auditRuleInformation": null,
+              "simpleSettingValue": {
+                "@odata.type": "#microsoft.graph.deviceManagementConfigurationIntegerSettingValue",
+                "settingValueTemplateReference": null,
+                "value": 259200000
+              }
+            }
+          ]
+        }
+      },
+      "settingDefinitions@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/settings('2')/settingDefinitions/$ref",
+      "settingDefinitions@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/settings('2')/settingDefinitions"
+    }
+  ],
+  "#microsoft.graph.assign": {
+    "title": "microsoft.graph.assign",
+    "target": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/microsoft.graph.assign"
+  },
+  "#microsoft.graph.clearEnrollmentTimeDeviceMembershipTarget": {
+    "title": "microsoft.graph.clearEnrollmentTimeDeviceMembershipTarget",
+    "target": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/microsoft.graph.clearEnrollmentTimeDeviceMembershipTarget"
+  },
+  "#microsoft.graph.createCopy": {
+    "title": "microsoft.graph.createCopy",
+    "target": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/microsoft.graph.createCopy"
+  },
+  "#microsoft.graph.reorder": {
+    "title": "microsoft.graph.reorder",
+    "target": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/microsoft.graph.reorder"
+  },
+  "#microsoft.graph.retrieveEnrollmentTimeDeviceMembershipTarget": {
+    "title": "microsoft.graph.retrieveEnrollmentTimeDeviceMembershipTarget",
+    "target": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/microsoft.graph.retrieveEnrollmentTimeDeviceMembershipTarget"
+  },
+  "#microsoft.graph.setEnrollmentTimeDeviceMembershipTarget": {
+    "title": "microsoft.graph.setEnrollmentTimeDeviceMembershipTarget",
+    "target": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/microsoft.graph.setEnrollmentTimeDeviceMembershipTarget"
+  },
+  "#microsoft.graph.retrieveLatestUpgradeDefaultBaselinePolicy": {
+    "title": "microsoft.graph.retrieveLatestUpgradeDefaultBaselinePolicy",
+    "target": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('fcf7ef3d-8a2f-43e9-9760-8ff76a303a12')/microsoft.graph.retrieveLatestUpgradeDefaultBaselinePolicy"
+  }
+}

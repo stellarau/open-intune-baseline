@@ -9,6 +9,7 @@ The table below lists all policies from the upstream [OpenIntuneBaseline](https:
 ✏️ Modified — settings differ from upstream
 
 ❌ Excluded — not deployed
+➕ SIB custom policy — not from OIB
 
 | Policy Name | Status | Reasoning |
 |:---|:---:|:---|
@@ -83,6 +84,12 @@ The table below lists all policies from the upstream [OpenIntuneBaseline](https:
 | Win - OIB - SC - Windows User Experience - D - Feature Configuration - v3.8 | ✏️ | News and interests (widgets) disabled — see comparison below |
 | Win - OIB - SC - Windows User Experience - D - Settings Sync - v3.7 | ❌ | Settings sync permitted by choice |
 | Win - OIB - SC - Windows User Experience - U - Copilot - v3.8 | ❌ | Copilot permitted by choice |
+| **SIB Custom Policies** | | |
+| Win - SIB - SC - Device Security - D - WA Timezone Enforcement - v1.0 | ➕ | Enforces W. Australia Standard Time across all devices |
+| Win - SIB - SC - Google Chrome - D - Security - v3.7 | ➕ | Chrome security hardening — based on Edge Security v3.7 |
+| Win - SIB - SC - Google Chrome - D - Updates - v3.6 | ➕ | Chrome update management — based on Edge Updates v3.6 |
+| Win - SIB - SC - Google Chrome - U - Extensions - v1.0 | ➕ | Chrome force-installed extensions |
+| Win - SIB - SC - Google Chrome - U - User Experience - v3.7 | ➕ | Chrome user experience — based on Edge User Experience v3.7 |
 | **Update Policies** | | |
 | Win - OIB - WUfB - Ring 1 - Pilot - v3.0 | ❌ | Third-party RMM solution manages Windows Update |
 | Win - OIB - WUfB - Ring 2 - UAT - v3.0 | ❌ | Third-party RMM solution manages Windows Update |
