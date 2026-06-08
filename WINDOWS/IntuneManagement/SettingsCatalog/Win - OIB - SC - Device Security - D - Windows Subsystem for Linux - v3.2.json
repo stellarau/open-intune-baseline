@@ -68,7 +68,7 @@
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_wslv1~policy~wsl_customnetworkingusersettingconfigurable_0",
+          "value": "device_vendor_msft_policy_config_wslv1~policy~wsl_customnetworkingusersettingconfigurable_1",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
