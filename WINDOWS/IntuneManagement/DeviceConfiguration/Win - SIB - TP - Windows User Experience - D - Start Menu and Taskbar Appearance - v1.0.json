@@ -1,0 +1,167 @@
+{
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#deviceManagement/deviceConfigurations(assignments())/$entity",
+  "@odata.type": "#microsoft.graph.windows10CustomConfiguration",
+  "@odata.id": "deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')",
+  "@odata.editLink": "deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.windows10CustomConfiguration",
+  "id": "415d7327-1f91-4347-8e4b-a04022d0129f",
+  "lastModifiedDateTime@odata.type": "#DateTimeOffset",
+  "lastModifiedDateTime": "2026-05-11T02:54:44.7135633Z",
+  "roleScopeTagIds@odata.type": "#Collection(String)",
+  "roleScopeTagIds": [
+    "0"
+  ],
+  "supportsScopeTags": true,
+  "deviceManagementApplicabilityRuleOsEdition": null,
+  "deviceManagementApplicabilityRuleOsVersion": null,
+  "deviceManagementApplicabilityRuleDeviceMode": null,
+  "createdDateTime@odata.type": "#DateTimeOffset",
+  "createdDateTime": "2025-11-18T10:00:56.3041408Z",
+  "description": "Win - Windows\nSS - Stellar System\nCU - Custom (OMA-URI)",
+  "displayName": "Win - SIB - TP - Windows User Experience - D - Start Menu and Taskbar Appearance - v1.0",
+  "version": 5,
+  "omaSettings@odata.type": "#Collection(microsoft.graph.omaSetting)",
+  "omaSettings": [
+    {
+      "@odata.type": "#microsoft.graph.omaSettingInteger",
+      "displayName": "AllowPinnedFolderPersonalFolder",
+      "description": null,
+      "omaUri": "./Device/Vendor/MSFT/Policy/Config/Start/AllowPinnedFolderPersonalFolder",
+      "secretReferenceValueId": null,
+      "isEncrypted": false,
+      "value": 1,
+      "isReadOnly": false
+    },
+    {
+      "@odata.type": "#microsoft.graph.omaSettingInteger",
+      "displayName": "AllowPinnedFolderSettings",
+      "description": null,
+      "omaUri": "./Device/Vendor/MSFT/Policy/Config/Start/AllowPinnedFolderSettings",
+      "secretReferenceValueId": null,
+      "isEncrypted": false,
+      "value": 1,
+      "isReadOnly": false
+    },
+    {
+      "@odata.type": "#microsoft.graph.omaSettingInteger",
+      "displayName": "AllowPinnedFolderDocuments",
+      "description": null,
+      "omaUri": "./Device/Vendor/MSFT/Policy/Config/Start/AllowPinnedFolderDocuments",
+      "secretReferenceValueId": null,
+      "isEncrypted": false,
+      "value": 1,
+      "isReadOnly": false
+    },
+    {
+      "@odata.type": "#microsoft.graph.omaSettingInteger",
+      "displayName": "AllowPinnedFolderDownloads",
+      "description": null,
+      "omaUri": "./Device/Vendor/MSFT/Policy/Config/Start/AllowPinnedFolderDownloads",
+      "secretReferenceValueId": null,
+      "isEncrypted": false,
+      "value": 1,
+      "isReadOnly": false
+    },
+    {
+      "@odata.type": "#microsoft.graph.omaSettingInteger",
+      "displayName": "HideTaskViewButton",
+      "description": null,
+      "omaUri": "./Device/Vendor/MSFT/Policy/Config/Start/HideTaskViewButton",
+      "secretReferenceValueId": null,
+      "isEncrypted": false,
+      "value": 1,
+      "isReadOnly": false
+    },
+    {
+      "@odata.type": "#microsoft.graph.omaSettingInteger",
+      "displayName": "HideRecommendedSection",
+      "description": null,
+      "omaUri": "./Device/Vendor/MSFT/Policy/Config/Start/HideRecommendedSection",
+      "secretReferenceValueId": null,
+      "isEncrypted": false,
+      "value": 1,
+      "isReadOnly": false
+    },
+    {
+      "@odata.type": "#microsoft.graph.omaSettingInteger",
+      "displayName": "HideRecommendedPersonalizedSites",
+      "description": null,
+      "omaUri": "./Device/Vendor/MSFT/Policy/Config/Start/HideRecommendedPersonalizedSites",
+      "secretReferenceValueId": null,
+      "isEncrypted": false,
+      "value": 1,
+      "isReadOnly": false
+    },
+    {
+      "@odata.type": "#microsoft.graph.omaSettingInteger",
+      "displayName": "HideRecentlyAddedApps",
+      "description": null,
+      "omaUri": "./Device/Vendor/MSFT/Policy/Config/Start/HideRecentlyAddedApps",
+      "secretReferenceValueId": null,
+      "isEncrypted": false,
+      "value": 1,
+      "isReadOnly": false
+    },
+    {
+      "@odata.type": "#microsoft.graph.omaSettingInteger",
+      "displayName": "ConfigureSearchOnTaskbarMode",
+      "description": null,
+      "omaUri": "./Device/Vendor/MSFT/Policy/Config/Search/ConfigureSearchOnTaskbarMode",
+      "secretReferenceValueId": null,
+      "isEncrypted": false,
+      "value": 0,
+      "isReadOnly": false
+    },
+    {
+      "@odata.type": "#microsoft.graph.omaSettingInteger",
+      "displayName": "DisableWidgetsOnLockScreen",
+      "description": null,
+      "omaUri": "./Device/Vendor/MSFT/Policy/Config/NewsAndInterests/DisableWidgetsOnLockScreen",
+      "secretReferenceValueId": null,
+      "isEncrypted": false,
+      "value": 1,
+      "isReadOnly": false
+    },
+    {
+      "@odata.type": "#microsoft.graph.omaSettingInteger",
+      "displayName": "DisableWidgetsBoard",
+      "description": null,
+      "omaUri": "./Device/Vendor/MSFT/Policy/Config/NewsAndInterests/DisableWidgetsBoard",
+      "secretReferenceValueId": null,
+      "isEncrypted": false,
+      "value": 0,
+      "isReadOnly": false
+    }
+  ],
+  "assignments@odata.context": "https://graph.microsoft.com/beta/$metadata#deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.windows10CustomConfiguration/assignments",
+  "assignments@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.windows10CustomConfiguration/assignments/$ref",
+  "assignments@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.windows10CustomConfiguration/assignments",
+  "assignments": [],
+  "deviceSettingStateSummaries@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.windows10CustomConfiguration/deviceSettingStateSummaries/$ref",
+  "deviceSettingStateSummaries@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.windows10CustomConfiguration/deviceSettingStateSummaries",
+  "deviceStatuses@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.windows10CustomConfiguration/deviceStatuses/$ref",
+  "deviceStatuses@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.windows10CustomConfiguration/deviceStatuses",
+  "deviceStatusOverview@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.windows10CustomConfiguration/deviceStatusOverview/$ref",
+  "deviceStatusOverview@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.windows10CustomConfiguration/deviceStatusOverview",
+  "groupAssignments@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.windows10CustomConfiguration/groupAssignments/$ref",
+  "groupAssignments@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.windows10CustomConfiguration/groupAssignments",
+  "userStatuses@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.windows10CustomConfiguration/userStatuses/$ref",
+  "userStatuses@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.windows10CustomConfiguration/userStatuses",
+  "userStatusOverview@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.windows10CustomConfiguration/userStatusOverview/$ref",
+  "userStatusOverview@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.windows10CustomConfiguration/userStatusOverview",
+  "#microsoft.graph.assign": {
+    "title": "microsoft.graph.assign",
+    "target": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.deviceConfiguration/microsoft.graph.assign"
+  },
+  "#microsoft.graph.assignedAccessMultiModeProfiles": {
+    "title": "microsoft.graph.assignedAccessMultiModeProfiles",
+    "target": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.deviceConfiguration/microsoft.graph.assignedAccessMultiModeProfiles"
+  },
+  "#microsoft.graph.windowsPrivacyAccessControls": {
+    "title": "microsoft.graph.windowsPrivacyAccessControls",
+    "target": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.deviceConfiguration/microsoft.graph.windowsPrivacyAccessControls"
+  },
+  "#microsoft.graph.getOmaSettingPlainTextValue": {
+    "title": "microsoft.graph.getOmaSettingPlainTextValue",
+    "target": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('415d7327-1f91-4347-8e4b-a04022d0129f')/microsoft.graph.deviceConfiguration/microsoft.graph.getOmaSettingPlainTextValue"
+  }
+}

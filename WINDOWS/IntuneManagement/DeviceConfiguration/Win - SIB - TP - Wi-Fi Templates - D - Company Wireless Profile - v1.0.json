@@ -1,0 +1,70 @@
+{
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#deviceManagement/deviceConfigurations(assignments())/$entity",
+  "@odata.type": "#microsoft.graph.windowsWifiConfiguration",
+  "@odata.id": "deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')",
+  "@odata.editLink": "deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.windowsWifiConfiguration",
+  "id": "dd5ad3d6-b733-4249-9f9f-41f599394d17",
+  "lastModifiedDateTime@odata.type": "#DateTimeOffset",
+  "lastModifiedDateTime": "2025-12-23T10:01:28.3531595Z",
+  "roleScopeTagIds@odata.type": "#Collection(String)",
+  "roleScopeTagIds": [
+    "0"
+  ],
+  "supportsScopeTags": true,
+  "deviceManagementApplicabilityRuleOsEdition": null,
+  "deviceManagementApplicabilityRuleOsVersion": null,
+  "deviceManagementApplicabilityRuleDeviceMode": null,
+  "createdDateTime@odata.type": "#DateTimeOffset",
+  "createdDateTime": "2025-01-21T04:51:02.9406199Z",
+  "description": null,
+  "displayName": "Win - SIB - TP - Wi-Fi Templates - D - Company Wireless Profile - v1.0",
+  "version": 3,
+  "wifiSecurityType@odata.type": "#microsoft.graph.wiFiSecurityType",
+  "wifiSecurityType": "wpa2Personal",
+  "meteredConnectionLimit@odata.type": "#microsoft.graph.meteredConnectionLimitType",
+  "meteredConnectionLimit": "unrestricted",
+  "ssid": "<SSID>",
+  "networkName": "<SSID>",
+  "connectAutomatically": true,
+  "connectToPreferredNetwork": null,
+  "connectWhenNetworkNameIsHidden": true,
+  "proxySetting@odata.type": "#microsoft.graph.wiFiProxySetting",
+  "proxySetting": "none",
+  "proxyManualAddress": null,
+  "proxyManualPort": null,
+  "proxyAutomaticConfigurationUrl": null,
+  "forceFIPSCompliance": false,
+  "preSharedKey": null,
+  "assignments@odata.context": "https://graph.microsoft.com/beta/$metadata#deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.windowsWifiConfiguration/assignments",
+  "assignments@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.windowsWifiConfiguration/assignments/$ref",
+  "assignments@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.windowsWifiConfiguration/assignments",
+  "assignments": [],
+  "deviceSettingStateSummaries@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.windowsWifiConfiguration/deviceSettingStateSummaries/$ref",
+  "deviceSettingStateSummaries@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.windowsWifiConfiguration/deviceSettingStateSummaries",
+  "deviceStatuses@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.windowsWifiConfiguration/deviceStatuses/$ref",
+  "deviceStatuses@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.windowsWifiConfiguration/deviceStatuses",
+  "deviceStatusOverview@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.windowsWifiConfiguration/deviceStatusOverview/$ref",
+  "deviceStatusOverview@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.windowsWifiConfiguration/deviceStatusOverview",
+  "groupAssignments@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.windowsWifiConfiguration/groupAssignments/$ref",
+  "groupAssignments@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.windowsWifiConfiguration/groupAssignments",
+  "userStatuses@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.windowsWifiConfiguration/userStatuses/$ref",
+  "userStatuses@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.windowsWifiConfiguration/userStatuses",
+  "userStatusOverview@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.windowsWifiConfiguration/userStatusOverview/$ref",
+  "userStatusOverview@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.windowsWifiConfiguration/userStatusOverview",
+  "#microsoft.graph.assign": {
+    "title": "microsoft.graph.assign",
+    "target": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.deviceConfiguration/microsoft.graph.assign"
+  },
+  "#microsoft.graph.assignedAccessMultiModeProfiles": {
+    "title": "microsoft.graph.assignedAccessMultiModeProfiles",
+    "target": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.deviceConfiguration/microsoft.graph.assignedAccessMultiModeProfiles"
+  },
+  "#microsoft.graph.windowsPrivacyAccessControls": {
+    "title": "microsoft.graph.windowsPrivacyAccessControls",
+    "target": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.deviceConfiguration/microsoft.graph.windowsPrivacyAccessControls"
+  },
+  "#microsoft.graph.getOmaSettingPlainTextValue": {
+    "title": "microsoft.graph.getOmaSettingPlainTextValue",
+    "target": "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations('dd5ad3d6-b733-4249-9f9f-41f599394d17')/microsoft.graph.deviceConfiguration/microsoft.graph.getOmaSettingPlainTextValue"
+  }
+}

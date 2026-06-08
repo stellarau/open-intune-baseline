@@ -90,6 +90,9 @@ The table below lists all policies from the upstream [OpenIntuneBaseline](https:
 | Win - SIB - SC - Google Chrome - D - Updates - v3.6 | ➕ | Chrome update management — based on Edge Updates v3.6 |
 | Win - SIB - SC - Google Chrome - U - Extensions - v1.0 | ➕ | Chrome force-installed extensions |
 | Win - SIB - SC - Google Chrome - U - User Experience - v3.7 | ➕ | Chrome user experience — based on Edge User Experience v3.7 |
+| Win - SIB - TP - Wi-Fi Templates - D - Company Wireless Profile - v1.0 | ➕ | WPA2 Personal Wi-Fi profile for corporate wireless network |
+| Win - SIB - TP - Windows Autopilot - D - Skip User Status Page - v1.0 | ➕ | Skips user ESP during Autopilot provisioning |
+| Win - SIB - TP - Windows User Experience - D - Start Menu and Taskbar Appearance - v1.0 | ➕ | Customises Start menu folders, hides Task View, Recommended section and taskbar search |
 | **Update Policies** | | |
 | Win - OIB - WUfB - Ring 1 - Pilot - v3.0 | ❌ | Third-party RMM solution manages Windows Update |
 | Win - OIB - WUfB - Ring 2 - UAT - v3.0 | ❌ | Third-party RMM solution manages Windows Update |
