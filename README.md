@@ -311,7 +311,7 @@ This section summarises the functional differences between the upstream OpenIntu
 
 ### ES - Windows LAPS - LAPS Configuration (24H2+)
 
-**Versions:** OIB v3.6 / SIB v3.6 — ⚠️ **1 value difference, 2 settings missing from SIB**
+**Versions:** OIB v3.6 / SIB v3.6 — ⚠️ **1 value difference, 1 setting missing from SIB**
 
 **Value differences:**
 
@@ -324,9 +324,8 @@ This section summarises the functional differences between the upstream OpenIntu
 | Setting | OIB Value |
 |---------|-----------|
 | Post-authentication actions | `11` (Reset password + sign out + terminate processes) |
-| Automatic account management | Enabled; targets built-in admin (`target_1`); account enabled; randomize name = false |
 
-> **Risk:** Missing post-authentication actions means SIB has no defined cleanup after LAPS credential use — the session may persist longer than intended. Missing automatic account management means SIB relies on the manually specified `WLapsAdmin` account rather than the built-in administrator.
+> **Risk:** Missing post-authentication actions means SIB has no defined cleanup after LAPS credential use — the session may persist longer than intended.
 
 ---
 
@@ -389,7 +388,7 @@ The following policies have security-relevant differences that should be reviewe
 | 🔴 High | SC - Microsoft Edge - D - Security | SIB (v3.7) allows SSL error bypass and SmartScreen overrides; update to v3.8 |
 | 🔴 High | SC - Microsoft Edge - U - Extensions | No extension blocklist in SIB — users can install any extension |
 | 🔴 High | SC - Device Security - Security Hardening | Wireless display projection without PIN allowed in SIB; LanmanWorkstation auditing missing; sudo not explicitly disabled |
-| 🟡 Medium | ES - Windows LAPS - LAPS Configuration (24H2+) | No post-authentication actions defined in SIB |
+| 🟡 Medium | ES - Windows LAPS - LAPS Configuration (24H2+) | Post-authentication actions not configured in SIB; reset delay set to 0 (immediate) |
 | 🟡 Medium | SC - Device Security - Local Security Policies (24H2+) | UAC secure desktop disabled in SIB |
 | 🟡 Medium | SC - Device Security - Login and Lock Screen | SIB on v3.1; ARSO settings present that were removed from v3.8 |
 | 🟡 Medium | SC - Device Security - Location and Privacy | SIB significantly more permissive on location access |
