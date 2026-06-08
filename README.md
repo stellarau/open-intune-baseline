@@ -325,16 +325,13 @@ This section summarises the functional differences between the upstream OpenIntu
 
 ### SC - Windows User Experience - D - Feature Configuration
 
-**Versions:** OIB v3.8 / SIB v3.1 — ⚠️ **Version gap, settings missing from SIB**
+**Versions:** OIB v3.8 / SIB v3.8 — ⚠️ **1 value difference**
 
-No value conflicts on shared settings. Settings added in OIB v3.8 missing from SIB:
+| Setting | OIB | SIB |
+|---------|-----|-----|
+| Allow news and interests | `1` (Enabled) | `0` (Disabled) |
 
-| Setting | OIB v3.8 Value |
-|---------|----------------|
-| Disable share app promotions | `1` (Enabled) |
-| Do not use web results in Search | `0` (Web results allowed) |
-
-> **Note:** 7-version gap between OIB and SIB. Recommend updating SIB to v3.8.
+> **Note:** SIB disables the Windows news and interests / widgets feature on the taskbar.
 
 ---
 
@@ -355,5 +352,5 @@ The following policies have security-relevant differences that should be reviewe
 | 🟢 Low | SC - Device Security - Windows Subsystem for Linux | WSL custom networking user-configurable in SIB |
 | 🟢 Low | SC - Microsoft Edge - U - Profiles, Sign-In and Sync | Sign-in not forced in SIB; users can add profiles |
 | 🟢 Low | SC - Microsoft Edge - U - User Experience | SIB missing OIB URL blocklist (apps.microsoft.com) and notification controls; SIB adds Google as recommended search provider |
-| 🟢 Low | SC - Windows User Experience - D - Feature Configuration | SIB on v3.1 (7-version gap); missing 2 minor settings |
+| 🟢 Low | SC - Windows User Experience - D - Feature Configuration | News and interests (widgets) disabled in SIB |
 | 🟢 Low | SC - Device Security - U - Power and Device Lock | Sleep timeout tripled in SIB (likely intentional UX change) |
