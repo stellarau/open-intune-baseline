@@ -165,35 +165,15 @@ This section summarises the functional differences between the upstream OpenIntu
 
 ### SC - Microsoft Edge - D - Security
 
-**Versions:** OIB v3.8 / SIB v3.7 — ⚠️ **Version gap with multiple differences**
+**Versions:** OIB v3.8 / SIB v3.8 — ⚠️ **3 value differences**
 
-**Value differences:**
-
-| Setting | OIB v3.8 | SIB v3.7 |
-|---------|----------|----------|
-| Download restrictions | `1` (Enabled) | `0` (Disabled) |
+| Setting | OIB | SIB |
+|---------|-----|-----|
+| Download restrictions | `1` (Enabled, block all) | `0` (Disabled) |
+| SSL error override allowed | `0` (Blocked) | `1` (Users can bypass SSL errors) |
 | Feature flag overrides control | `1` (Enabled) | `0` (Disabled) |
-| SSL error override allowed | `0` (Disabled) | `1` (Enabled — users can bypass SSL errors) |
-| Prevent SmartScreen prompt override | `1` (Enabled) | `0` (Disabled) |
-| Prevent SmartScreen prompt override for files | `1` (Enabled) | `0` (Disabled) |
 
-**Added in OIB v3.8 (missing from SIB):**
-
-| Setting | Value |
-|---------|-------|
-| Download restrictions sub-setting (block level) | `4` (Block all) |
-| Feature flag overrides control sub-setting | `0` |
-| SmartScreen DNS requests enabled | `1` (Enabled) |
-| Network prediction options | `1` (Enabled) |
-| Network prediction options sub-setting | `2` |
-
-**Removed in OIB v3.8 (only in SIB v3.7):**
-
-| Setting | Value |
-|---------|-------|
-| Renderer code integrity enabled | `1` (Deprecated/removed from Edge policy) |
-
-> **Risk:** SSL error bypass and SmartScreen override being allowed in SIB are significant security gaps. Recommend updating SIB to v3.8.
+> **Risk:** SSL error override allowed in SIB lets users bypass certificate errors. Download restrictions disabled in SIB removes a meaningful defence against malicious downloads.
 
 ---
 
@@ -365,7 +345,7 @@ The following policies have security-relevant differences that should be reviewe
 | Priority | Policy | Issue |
 |----------|--------|-------|
 | 🔴 High | ES - Windows Firewall - Firewall Configuration | All firewall logging disabled in SIB — no visibility into dropped packets or connections |
-| 🔴 High | SC - Microsoft Edge - D - Security | SIB (v3.7) allows SSL error bypass and SmartScreen overrides; update to v3.8 |
+| 🔴 High | SC - Microsoft Edge - D - Security | SSL error override allowed in SIB; download restrictions disabled; feature flag overrides disabled |
 | 🔴 High | SC - Microsoft Edge - U - Extensions | No extension blocklist in SIB — users can install any extension |
 | 🔴 High | SC - Device Security - Security Hardening | Wireless display projection without PIN allowed in SIB; LanmanWorkstation auditing missing; sudo not explicitly disabled |
 | 🟡 Medium | ES - Windows LAPS - LAPS Configuration (24H2+) | Post-authentication actions not configured in SIB; reset delay set to 0 (immediate) |
