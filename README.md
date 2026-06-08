@@ -64,7 +64,7 @@ The table below lists all policies from the upstream [OpenIntuneBaseline](https:
 | Win - OIB - SC - Microsoft Edge - U - Password Management - v3.0 | ✏️ | Third-party password manager in use — see comparison below |
 | Win - OIB - SC - Microsoft Edge - U - Profiles, Sign-In and Sync - v3.0 | ✏️ | Sign-in not enforced; profile management relaxed — see comparison below |
 | Win - OIB - SC - Microsoft Edge - U - User Experience - v3.8 | ✏️ | Google search retained; notification controls omitted — see comparison below |
-| Win - OIB - SC - Microsoft Office - D - Security - v3.6 | ✅ | |
+| Win - OIB - SC - Microsoft Office - D - Security - v3.6 | ❌ | Not supported with Microsoft 365 Business Premium |
 | Win - OIB - SC - Microsoft Office - D - Updates - v3.0 | ✅ | |
 | Win - OIB - SC - Microsoft Office - U - Config and Experience - v3.6 | ✅ | |
 | Win - OIB - SC - Microsoft Office - U - Security - v3.6 | ✅ | |
