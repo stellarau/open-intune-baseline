@@ -245,30 +245,30 @@ This section summarises the functional differences between the upstream OpenIntu
 
 ### SC - Microsoft Edge - U - User Experience
 
-**Versions:** OIB v3.8 / SIB v3.7 — ⚠️ **Version gap**
+**Versions:** OIB v3.8 / SIB v3.8 — ⚠️ **4 settings missing from SIB, 5 extra settings in SIB**
 
 **No value conflicts** — all shared settings are identical.
 
-**Added in OIB v3.8 (missing from SIB):**
+**Only in OIB (missing from SIB):**
 
-| Setting | Value |
-|---------|-------|
+| Setting | OIB Value |
+|---------|-----------|
 | What's New page for Entra profiles enabled | `0` (Disabled) |
 | URL blocklist | Enabled, blocking `apps.microsoft.com` and variants |
 | Default notifications setting | `2` (Block by default) |
 | Notifications allowed for URLs | `*.microsoft.com`, `*.cloud.microsoft` |
 
-**Removed in OIB v3.8 (only in SIB v3.7):**
+**Only in SIB (not in OIB):**
 
-| Setting | Value |
-|---------|-------|
-| Default search provider | Google (recommended) |
-| Default search provider name | Google |
-| Default search provider URL | Full Google search URL |
-| New tab page search box | `redirect` |
+| Setting | SIB Value |
+|---------|-----------|
+| New tab page search box | `redirect` (recommended) |
+| Default search provider name | Google (recommended) |
+| Default search provider URL | Full Google search URL (recommended) |
+| Default search provider enabled | `1` (Enabled, recommended) |
 | Homepage is new tab page | `1` (Enabled, recommended) |
 
-> **Note:** Removing Google as the recommended search provider in v3.8 means SIB devices would revert to Bing if updated without re-adding these settings — confirm whether Google default is required.
+> **Note:** SIB retains Google as the recommended default search provider (removed from OIB v3.8). The OIB URL blocklist for apps.microsoft.com and notification controls are not deployed in SIB.
 
 ---
 
@@ -354,6 +354,6 @@ The following policies have security-relevant differences that should be reviewe
 | 🟡 Medium | SC - Microsoft Edge - U - Password Management | Edge password manager disabled in SIB with no alternative controls |
 | 🟢 Low | SC - Device Security - Windows Subsystem for Linux | WSL custom networking user-configurable in SIB |
 | 🟢 Low | SC - Microsoft Edge - U - Profiles, Sign-In and Sync | Sign-in not forced in SIB; users can add profiles |
-| 🟢 Low | SC - Microsoft Edge - U - User Experience | SIB on v3.7; missing URL blocklist for apps.microsoft.com and notification controls |
+| 🟢 Low | SC - Microsoft Edge - U - User Experience | SIB missing OIB URL blocklist (apps.microsoft.com) and notification controls; SIB adds Google as recommended search provider |
 | 🟢 Low | SC - Windows User Experience - D - Feature Configuration | SIB on v3.1 (7-version gap); missing 2 minor settings |
 | 🟢 Low | SC - Device Security - U - Power and Device Lock | Sleep timeout tripled in SIB (likely intentional UX change) |
