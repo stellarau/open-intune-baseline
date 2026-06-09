@@ -4,10 +4,10 @@
 
 The table below lists all policies from the upstream [OpenIntuneBaseline](https://github.com/SkipToTheEndpoint/OpenIntuneBaseline) and their status in this baseline.
 
-✅ = Included — no changes from upstream  
-✏️ = Modified — settings differ from upstream  
-❌ = Excluded — not deployed  
-➕ = Added — not from OIB  
+✅ Included: no changes from upstream  
+✏️ Modified: settings differ from upstream  
+❌ Excluded: not deployed  
+➕ Added: not from OIB  
 
 | Policy Name | Status | Reasoning |
 |:---|:---:|:---|
