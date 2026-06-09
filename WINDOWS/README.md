@@ -1,118 +1,368 @@
-# OpenIntuneBaseline - Windows
+# Stellar Intune Baseline
 
-## Intended Use-Case
-The baseline has been designed for, and tested on the following:
+## Windows Policy Reference
 
-### Device:
-* Windows 11 Enterprise (though should also work on Windows 10 Enterprise)
-* Enrolled into Autopilot
-* Autopilot configuration:
-    * Deployment Mode - User Driven
-    * Join Type - Microsoft Entra Joined
-    * User Account Type - Standard
-* Single-user device
+The table below lists all policies from the upstream [OpenIntuneBaseline](https://github.com/SkipToTheEndpoint/OpenIntuneBaseline) and their status in this baseline.
 
-### User:
-* Cloud-Only or Hybrid Identity with Entra ID as IdP
-* MFA configured via Conditional Access
+✅ Included: no changes from upstream  
+✏️ Modified: settings differ from upstream  
+❌ Excluded: not deployed  
+➕ Added: not from OIB  
 
-### Licensing:
-* M365 Business Premium or M365 E5/A5, or M365 E3/A3 + MDE P1/P2 
-<br>**OR**:
-    * Entra ID P1 or P2
-    * Office 365 E3/E5, A3/A5 or F3
-    * Intune P1
-    * Defender for Business or Endpoint P1/P2
-
-> [!NOTE]
-> Some settings may report errors or as "Not Applicable" if the device is running Pro/Business rather than Enterprise.
-
-> [!CAUTION]
-> While many policies should work fine on a Multi-user (Shared) device, there are additional considerations required for these that are not covered by this baseline.
-
-### Addressing Hybrid Join
-The Windows OIB has **not** been designed for hybrid scenarios, and will likely **not work as expected or intended** on hybrid-joined devices. 
-
-It is _**Microsoft's recommendation**_ that you move to cloud-native for new devices: https://aka.ms/CloudNativeEndpoints
-
-I would personally recommend maintaining GPO for on-prem devices, and using Intune for cloud-native devices, with the exception of things like Endpoint Analytics, Windows Update for Business and Application Deployment. Applying Intune policy over the top of GPO can cause unexpected results, and should be avoided where possible. Similarly, GPOs may well leave registry keys behind that can cause unexpected results when applying Intune policy.
-
-> [!IMPORTANT]
-> Successful application of the baseline outside of this configuration cannot be guaranteed.
-
----
-
-## Importing the Baseline:
-Please reference [Importing the Baseline](https://github.com/SkipToTheEndpoint/OpenIntuneBaseline/wiki#importing-the-baseline) for information.
-
----
-
-## Baseline Security Posture
-Primary information regarding adherence to security frameworks can be found in the [Wiki](https://github.com/SkipToTheEndpoint/OpenIntuneBaseline/wiki#security-framework-adherence), however there are some notable deviations from security Windowss guidance frameworks. These are detailed below:
-
-| Policy | Setting Name | Framework Recommendation | Baseline Setting | Rationale |
-|---|---|---|---|---|
-| Device Security - Local Security Policies |  |  |  |  |
-|  | Accounts Enable Administrator Account Status | Disabled | Enabled | Allows usage of Windows LAPS without additional configuration or creating a new local user account. |
-|  | User Account Control Behavior Of The Elevation Prompt For Standard Users | Automatically deny elevation requests | Prompt for credentials on secure desktop | Maintains standard helpdesk remote support processes capabilities. |
-
-### Comparison against other Security Baselines
-Please see [Baseline Comparison](https://github.com/SkipToTheEndpoint/OpenIntuneBaseline/wiki/win-comparison) wiki page for more information.
-
-As of v3.4, I have documented the rationale for not implementing specific settings against the CIS Intune Benchmark.
-[OIB v3.4 vs CIS Intune v3.0.1](OIBvsCIS-Rationale.csv)
-
-### Security Recommendations
-The results of the Defender for Endpoint Security Recommendations page on a baseline-configured device can be viewed below:
-
-[export-tvm-security-recommendations.csv](/WINDOWS/export-tvm-security-recommendations.csv)
-
-Please note that **all** security tools, including Microsoft's own seem to have problems with the fact that CSP's put settings in different registry key locations. This is not an issue with the baseline, and is something that needs to be addressed by the security tool vendors. See the FAQ for more information:
-
-[Security tool _y_ says setting _x_ is not configured but Intune says it's applied correctly!](https://github.com/SkipToTheEndpoint/OpenIntuneBaseline/wiki/faq#security-tool-y-says-setting-x-is-not-configured-but-intune-says-its-applied-correctly)
-
-### Included Settings
-* Core device security hardening
-* Device Encryption via BitLocker
-* Google Chrome (Note: Policies are quite "Anti-Chrome" to encourage the use of Edge)
-* Microsoft Edge (Split into multiple policies for easier management)
-* Microsoft Office (Including OneDrive Known Folder Move)
-* Microsoft Defender for Endpoint (AV, Firewall, ASR Rules)
-* Windows LAPS
-* Windows Update for Business (Delivery Optimisation, Telemetry & WUfB Reports)
-* Windows Update Rings (3-ring model of Pilot, UAT & Production)
-* Windows Hello for Business
-
-Almost all policies are Settings Catalog-backed and will show in Devices>Configuration Profiles, however the following will appear in the Endpoint Security section of Intune:
-* Defender Antivirus
-* BitLocker Encryption
-* Windows Firewall
-* Windows Hello for Business
-* Windows LAPS
-
-For a complete list of settings, please consult [SETTINGSOUTPUT](/WINDOWS/SETTINGSOUTPUT.md).
-
-### Known Limitations:
-Due to the wildly differing nature of environments, it is not possible to create a "baseline" for AppLocker or Windows Defender Application Control (WDAC). While the baseline ensures standard users cannot elevate to install applications, apps that do not require elevation or install to a user's AppData folder may not be blocked.
-
----
-
-## Known Issues
-Please see the [Known Issues](https://github.com/SkipToTheEndpoint/OpenIntuneBaseline/wiki/win-knownissues) wiki page for more information.
-
----
-
-## Supporting Configuration:
-- **Windows Autopatch** - If your licensing supports it, I would **strongly** recommend implementing Autopatch for management of your Windows Quality, Driver and Feature updates. - [Autopatch Overview](https://learn.microsoft.com/en-us/windows/deployment/windows-autopatch/overview/windows-autopatch-overview)
-- **Windows Update for Business Reports** - With an appropriate Azure subscription, a Log Analytics Workspace can be created to monitor update compliance of devices. - [Additional information](https://learn.microsoft.com/en-us/windows/deployment/update/wufb-reports-overview) 
-- **M365 Apps Updates** - Enabling [Cloud Update](https://learn.microsoft.com/en-us/deployoffice/admincenter/cloud-update) through [config.office.com](https://config.office.com/officeSettings/serviceprofile) can ensure Office Apps for Business/Enterprise remain up-to-date on the Monthly Enterprise Channel. Settings in the "Office - Update Settings" policy can remain as Cloud Update takes priority over any other Office management. Ensure the [Inventory](https://config.office.com/officeSettings/inventory) is enabled.
-
-> [!NOTE]
-> Guidance on this can be found in the [Settings Guidance](https://github.com/SkipToTheEndpoint/OpenIntuneBaseline/wiki/win-settingsguidance) wiki page.
+| Policy Name | Status | Reasoning |
+|:---|:---:|:---|
+| **Compliance Policies** | | |
+| Win - OIB - Compliance - U - Device Health - v3.1 | ✅ | |
+| Win - OIB - Compliance - U - Device Security - v3.1 | ✅ | |
+| Win - OIB - Compliance - U - Password - v3.1 | ✅ | |
+| Win - OIB - Compliance - U - Defender for Endpoint - v3.1 | ❌ | Third-party EDR/MDR solution in place |
+| **Device Configuration** | | |
+| Win - OIB - TP - Health Monitoring - D - Endpoint Analytics - v3.4 | ✅ | |
+| **Endpoint Security** | | |
+| Win - OIB - ES - Attack Surface Reduction - D - ASR Rules (Audit Mode) - v3.1 | ❌ | Third-party EDR/MDR solution in place |
+| Win - OIB - ES - Attack Surface Reduction - D - ASR Rules (L2) - v3.7 | ❌ | Third-party EDR/MDR solution in place |
+| Win - OIB - ES - Defender Antivirus - D - AV Configuration - v3.3 | ❌ | Third-party EDR/MDR solution in place |
+| Win - OIB - ES - Defender Antivirus - D - Security Experience - v3.3 | ❌ | Third-party EDR/MDR solution in place |
+| Win - OIB - ES - Defender Antivirus Updates - Ring 1 - Pilot - v3.4 | ❌ | Third-party EDR/MDR solution in place |
+| Win - OIB - ES - Defender Antivirus Updates - Ring 2 - UAT - v3.4 | ❌ | Third-party EDR/MDR solution in place |
+| Win - OIB - ES - Defender Antivirus Updates - Ring 3 - Production - v3.4 | ❌ | Third-party EDR/MDR solution in place |
+| Win - OIB - ES - Encryption - D - BitLocker (OS Disk) - v3.7 | ✅ | |
+| Win - OIB - ES - Encryption - U - Personal Data Encryption - v3.4 | ❌ | Not supported on Windows 11 Pro / Microsoft 365 Business Premium |
+| Win - OIB - ES - Windows Firewall - D - Firewall Configuration - v3.1 | ✏️ | Firewall logging disabled — see comparison below |
+| Win - OIB - ES - Windows Firewall - D - Security Rules - v3.8 | ✅ | |
+| Win - OIB - ES - Local Group Membership - D - Local Administrators - v3.7 | ✅ | |
+| Win - OIB - ES - Windows Hello for Business - D - WHfB Configuration - v3.2 | ✅ | |
+| Win - OIB - ES - Windows LAPS - D - LAPS Configuration (24H2+) - v3.6 | ✏️ | Post-authentication settings adjusted — see comparison below |
+| Win - OIB - ES - Windows LAPS - D - LAPS Configuration - v3.1 | ❌ | All devices on Windows 11 24H2+; superseded by 24H2+ policy |
+| **Settings Catalog** | | |
+| Win - OIB - SC - Credential Management - D - Passwordless - v3.3 | ✅ | |
+| Win - OIB - SC - Defender Antivirus - D - Additional Configuration - v3.8 | ❌ | Third-party EDR/MDR solution in place |
+| Win - OIB - SC - Device Security - D - Administrator Protection - v3.7 | ❌ | Not yet assessed |
+| Win - OIB - SC - Device Security - D - Audit and Event Logging - v3.7 | ✅ | |
+| Win - OIB - SC - Device Security - D - Config Refresh - v3.2 | ✅ | |
+| Win - OIB - SC - Device Security - D - Enhanced Phishing Protection - v3.0 | ✅ | |
+| Win - OIB - SC - Device Security - D - Local Security Policies (24H2+) - v3.6 | ✏️ | UAC prompts use standard desktop — see comparison below |
+| Win - OIB - SC - Device Security - D - Local Security Policies - v3.0 | ❌ | All devices on Windows 11 24H2+; superseded by 24H2+ policy |
+| Win - OIB - SC - Device Security - D - Location and Privacy - v3.2 | ✏️ | Location access relaxed for operational needs — see comparison below |
+| Win - OIB - SC - Device Security - D - Login and Lock Screen - v3.8 | ✅ | |
+| Win - OIB - SC - Device Security - D - Printing - v3.7 | ✅ | |
+| Win - OIB - SC - Device Security - D - Remote Desktop Services and RPC - v3.0 | ✅ | |
+| Win - OIB - SC - Device Security - D - Script File Associations - v3.4 | ❌ | Breaks legitimate business scripts |
+| Win - OIB - SC - Device Security - D - Security Hardening - v3.7 | ✏️ | Wireless display and network settings adjusted — see comparison below |
+| Win - OIB - SC - Device Security - D - Timezone - v3.4 | ✅ | |
+| Win - OIB - SC - Device Security - D - User Rights - v3.7 | ✅ | |
+| Win - OIB - SC - Device Security - D - Windows Package Manager - v3.5 | ❌ | Restricting Winget causes issues with legitimate workflows |
+| Win - OIB - SC - Device Security - D - Windows Subsystem for Linux - v3.2 | ✏️ | Custom networking enabled for developer use — see comparison below |
+| Win - OIB - SC - Device Security - U - Device Guard, Credential Guard and HVCI - v3.7 | ❌ | Not supported on Windows 11 Pro |
+| Win - OIB - SC - Device Security - U - Power and Device Lock - v3.6 | ✏️ | Sleep timeout extended for plugged-in devices — see comparison below |
+| Win - OIB - SC - Device Security - U - Windows Sandbox - v3.4 | ✅ | |
+| Win - OIB - SC - Device Security - U - Windows Spotlight and Org Messages - v3.0 | ❌ | Not supported on Windows 11 Pro |
+| Win - OIB - SC - Internet Explorer (Legacy) - D - Security - v3.1.1 | ✅ | |
+| Win - OIB - SC - Microsoft Accounts - D - Configuration - v3.2 | ✅ | |
+| Win - OIB - SC - Microsoft Edge - D - Security - v3.8 | ✏️ | SSL override permitted; download restrictions relaxed — see comparison below |
+| Win - OIB - SC - Microsoft Edge - D - Updates - v3.6 | ✅ | |
+| Win - OIB - SC - Microsoft Edge - U - Extensions - v3.1 | ✏️ | Custom extension set deployed — see comparison below |
+| Win - OIB - SC - Microsoft Edge - U - Password Management - v3.0 | ✏️ | Third-party password manager in use — see comparison below |
+| Win - OIB - SC - Microsoft Edge - U - Profiles, Sign-In and Sync - v3.0 | ✏️ | Sign-in not enforced; profile management relaxed — see comparison below |
+| Win - OIB - SC - Microsoft Edge - U - User Experience - v3.8 | ✏️ | Google search retained; notification controls omitted — see comparison below |
+| Win - OIB - SC - Microsoft Office - D - Security - v3.6 | ❌ | Not supported with Microsoft 365 Business Premium |
+| Win - OIB - SC - Microsoft Office - D - Updates - v3.0 | ✅ | |
+| Win - OIB - SC - Microsoft Office - U - Config and Experience - v3.6 | ✅ | |
+| Win - OIB - SC - Microsoft Office - U - Security - v3.6 | ✅ | |
+| Win - OIB - SC - Microsoft OneDrive - D - Configuration - v3.2 | ✅ | |
+| Win - OIB - SC - Microsoft OneDrive - U - Configuration - v3.8 | ✅ | |
+| Win - OIB - SC - Microsoft Store - D - Configuration - v3.8 | ✅ | |
+| Win - OIB - SC - Microsoft Store - U - Configuration - v3.3 | ✅ | |
+| Win - OIB - SC - Network Security - D - Disable NTLM - v3.8 | ✅ | |
+| Win - OIB - SC - Windows Apps - D - In-Box App Removal - v3.7 | ❌ | Not supported on Windows 11 Pro |
+| Win - OIB - SC - Windows Hello for Business - D - Cloud Kerberos Trust - v3.5 | ✅ | |
+| Win - OIB - SC - Windows Update for Business - D - Delivery Optimisation - v3.0 | ✅ | |
+| Win - OIB - SC - Windows Update for Business - D - Reports and Telemetry - v3.0 | ✅ | |
+| Win - OIB - SC - Windows User Experience - D - Automatic Restart Sign-On - v3.8 | ✅ | |
+| Win - OIB - SC - Windows User Experience - D - Feature Configuration - v3.8 | ✏️ | News and interests (widgets) disabled — see comparison below |
+| Win - OIB - SC - Windows User Experience - D - Settings Sync - v3.7 | ❌ | Settings sync permitted by choice |
+| Win - OIB - SC - Windows User Experience - U - Copilot - v3.8 | ❌ | Copilot permitted by choice |
+| **SIB Custom Policies** | | |
+| Win - SIB - SC - Device Security - D - WA Timezone Enforcement - v1.0 | ➕ | Enforces W. Australia Standard Time across all devices |
+| Win - SIB - SC - Google Chrome - D - Security - v3.7 | ➕ | Chrome security hardening — based on Edge Security v3.7 |
+| Win - SIB - SC - Google Chrome - D - Updates - v3.6 | ➕ | Chrome update management — based on Edge Updates v3.6 |
+| Win - SIB - SC - Google Chrome - U - Extensions - v1.0 | ➕ | Chrome force-installed extensions |
+| Win - SIB - SC - Google Chrome - U - User Experience - v3.7 | ➕ | Chrome user experience — based on Edge User Experience v3.7 |
+| Win - SIB - TP - Wi-Fi Templates - D - Company Wireless Profile - v1.0 | ➕ | WPA2 Personal Wi-Fi profile for corporate wireless network |
+| Win - SIB - TP - Windows Autopilot - D - Skip User Status Page - v1.0 | ➕ | Skips user ESP during Autopilot provisioning |
+| Win - SIB - TP - Windows User Experience - D - Start Menu and Taskbar Appearance - v1.0 | ➕ | Customises Start menu folders, hides Task View, Recommended section and taskbar search |
+| **Update Policies** | | |
+| Win - OIB - WUfB - Ring 1 - Pilot - v3.0 | ❌ | Third-party RMM solution manages Windows Update |
+| Win - OIB - WUfB - Ring 2 - UAT - v3.0 | ❌ | Third-party RMM solution manages Windows Update |
+| Win - OIB - WUfB - Ring 3 - Production - v3.0 | ❌ | Third-party RMM solution manages Windows Update |
+| **Driver Update Profiles** | | |
+| Win - OIB - WUfB Drivers - Ring 1 - Pilot - v3.0 | ❌ | Third-party RMM solution manages Windows Update |
+| Win - OIB - WUfB Drivers - Ring 2 - UAT - v3.0 | ❌ | Third-party RMM solution manages Windows Update |
+| Win - OIB - WUfB Drivers - Ring 3 - Production - v3.0 | ❌ | Third-party RMM solution manages Windows Update |
 
 ---
 
-## Additional Information:
+## OIB vs SIB Policy Comparison
 
-> [!TIP]
-> For further information, please consult the [FAQ](https://github.com/SkipToTheEndpoint/OpenIntuneBaseline/wiki/faq)
+This section summarises the functional differences between the upstream OpenIntuneBaseline (OIB) and the Stellar Intune Baseline (SIB). Only policies with setting-level differences are listed.
+
+---
+
+### ES - Windows Firewall - Firewall Configuration
+
+**Versions:** OIB v3.1 / SIB v3.1 — ⚠️ **8 value differences (all logging/auditing)**
+
+| Setting | OIB | SIB |
+|---------|-----|-----|
+| Audit: Filtering Platform Connection | `2` (Success auditing) | `0` (No auditing) |
+| Audit: Filtering Platform Packet Drop | `2` (Success auditing) | `0` (No auditing) |
+| Domain profile: Log dropped packets | `true` | `false` |
+| Domain profile: Log successful connections | `true` | `false` |
+| Private profile: Log dropped packets | `true` | `false` |
+| Private profile: Log successful connections | `true` | `false` |
+| Public profile: Log dropped packets | `true` | `false` |
+| Public profile: Log successful connections | `true` | `false` |
+
+> **Risk:** SIB has zero firewall logging across all profiles and no connection auditing. This significantly limits incident detection and investigation capability.
+
+---
+
+### ES - Windows LAPS - LAPS Configuration (24H2+)
+
+**Versions:** OIB v3.6 / SIB v3.6 — ⚠️ **1 value difference, 1 setting missing from SIB**
+
+**Value differences:**
+
+| Setting | OIB | SIB |
+|---------|-----|-----|
+| Post-authentication reset delay | `1` hour | `0` (Immediate / disabled) |
+
+**Settings missing from SIB entirely:**
+
+| Setting | OIB Value |
+|---------|-----------|
+| Post-authentication actions | `11` (Reset password + sign out + terminate processes) |
+
+> **Risk:** Missing post-authentication actions means SIB has no defined cleanup after LAPS credential use — the session may persist longer than intended.
+
+---
+
+### SC - Device Security - Local Security Policies (24H2+)
+
+**Versions:** OIB v3.6 / SIB v3.6 — ⚠️ **3 value differences**
+
+| Setting | OIB | SIB |
+|---------|-----|-----|
+| UAC: Behavior of elevation prompt for administrators | `2` (Prompt for consent — secure desktop) | `4` (Prompt for consent — standard desktop) |
+| UAC: Behavior of elevation prompt for standard users | `1` (Prompt for credentials — secure desktop) | `3` (Prompt for credentials — standard desktop) |
+| UAC: Switch to secure desktop when prompting for elevation | `1` (Enabled) | `0` (Disabled) |
+
+> **Risk:** SIB disables the secure desktop for all UAC prompts. All three settings are consistent — UAC prompts appear on the standard desktop rather than the isolated secure desktop, which is more susceptible to spoofing by malicious foreground applications.
+
+---
+
+### SC - Device Security - Location and Privacy
+
+**Versions:** OIB v3.2 / SIB v3.2 — ⚠️ **Multiple differences**
+
+| Setting | OIB | SIB |
+|---------|-----|-----|
+| Let apps access location (`letappsaccesslocation`) | `0` (User in control) | `1` (Force allow) |
+| Allow location (`system_allowlocation`) | `1` (Allowed, not user-overridable) | `2` (Allowed, user can override) |
+| Let apps access location — force allow these apps | `windows.immersivecontrolpanel`, `Microsoft.OutlookForWindows` | ❌ Missing entirely |
+
+> **Note:** OIB locks down location with a specific app allowlist. SIB is more permissive — all apps force-allowed and users can change system location settings.
+
+---
+
+### SC - Device Security - Security Hardening
+
+**Versions:** OIB v3.7 / SIB v3.7 — ⚠️ **4 value differences, 5 settings missing from SIB**
+
+**Value differences:**
+
+| Setting | OIB | SIB |
+|---------|-----|-----|
+| WCM: Minimize simultaneous connections | `1` (Enabled) | `0` (Disabled) |
+| Prohibit connection to non-domain networks when connected to domain | `1` (Enabled) | `0` (Disabled) |
+| Wireless Display: Allow projection to this PC | `0` (Disabled) | `1` (Enabled) |
+| Wireless Display: Require PIN for pairing | `1` (Required) | `0` (Not required) |
+
+**Settings missing from SIB entirely:**
+
+| Setting | OIB Value |
+|---------|-----------|
+| WCM: Minimize connections — options sub-setting | `3` |
+| LanmanWorkstation: Audit insecure guest logon | `1` (Enabled) |
+| LanmanWorkstation: Audit server doesn't support encryption | `1` (Enabled) |
+| LanmanWorkstation: Audit server doesn't support signing | `1` (Enabled) |
+| Sudo: Enable sudo | `0` (Disabled) |
+
+> **Risk:** Wireless display projection allowed without PIN in SIB is a meaningful security regression. Missing LanmanWorkstation audit settings reduce visibility into SMB security issues. Missing sudo disable leaves the feature in its default state.
+
+---
+
+### SC - Device Security - Windows Subsystem for Linux
+
+**Versions:** OIB v3.2 / SIB v3.2 — ⚠️ **1 value difference**
+
+| Setting | OIB | SIB |
+|---------|-----|-----|
+| WSL: Custom networking user setting configurable | `0` (Disabled) | `1` (Enabled) |
+
+> **Note:** SIB allows users to configure custom WSL networking. May be intentional for developer users.
+
+---
+
+### SC - Device Security - U - Power and Device Lock
+
+**Versions:** OIB v3.6 / SIB v3.6 — ⚠️ **1 value difference**
+
+| Setting | OIB | SIB |
+|---------|-----|-----|
+| Unattended sleep timeout (plugged in) | `900s` (15 min) | `2700s` (45 min) |
+
+> **Note:** Likely a deliberate UX change — 15 minutes is aggressive for a plugged-in device.
+
+---
+
+### SC - Microsoft Edge - D - Security
+
+**Versions:** OIB v3.8 / SIB v3.8 — ⚠️ **3 value differences**
+
+| Setting | OIB | SIB |
+|---------|-----|-----|
+| Download restrictions | `1` (Enabled, block all) | `0` (Disabled) |
+| SSL error override allowed | `0` (Blocked) | `1` (Users can bypass SSL errors) |
+| Feature flag overrides control | `1` (Enabled) | `0` (Disabled) |
+
+> **Risk:** SSL error override allowed in SIB lets users bypass certificate errors. Download restrictions disabled in SIB removes a meaningful defence against malicious downloads.
+
+---
+
+### SC - Microsoft Edge - U - Extensions
+
+**Versions:** OIB v3.1 / SIB v3.1 — ⚠️ **Major differences**
+
+**Value differences:**
+
+| Setting | OIB | SIB |
+|---------|-----|-----|
+| Force-installed extensions | `nkbndigcebkoaejohleckhekfmcecfja`, `ofefcgjbeghpigppfmkologfjadafddi` | `lfochlioelphaglamdcakfjemolpichk`, `gaaceiggkkiffbfdpmfapegoiohkiipl` |
+
+**Settings missing from SIB entirely:**
+
+| Setting | OIB Value |
+|---------|-----------|
+| Extension install allow list | `0` (Disabled — blocklist controls access) |
+| Block external extensions | `1` (Enabled) |
+| Extension install block list | `*` (Block all extensions) |
+
+> **Risk:** SIB has no blocklist, meaning users can install any Edge extension. Force-installed extension IDs are completely different between OIB and SIB — confirm SIB extensions are intentional.
+
+---
+
+### SC - Microsoft Edge - U - Password Management
+
+**Versions:** OIB v3.0 / SIB v3.0 — ⚠️ **Major differences**
+
+**Value differences:**
+
+| Setting | OIB | SIB |
+|---------|-----|-----|
+| Password manager enabled | `1` (Enabled) | `0` (Disabled) |
+
+**Settings missing from SIB entirely:**
+
+| Setting | OIB Value |
+|---------|-----------|
+| Password monitor allowed (breach detection) | `1` (Enabled) |
+| Password generator enabled | `1` (Enabled) |
+| Primary password setting | `1` (Enabled, requires primary password to access saved passwords) |
+
+> **Note:** SIB disables the Edge password manager entirely — likely intentional if a third-party password manager is in use.
+
+---
+
+### SC - Microsoft Edge - U - Profiles, Sign-In and Sync
+
+**Versions:** OIB v3.0 / SIB v3.0 — ⚠️ **3 value differences, 1 extra setting in SIB**
+
+**Value differences:**
+
+| Setting | OIB | SIB |
+|---------|-----|-----|
+| Implicit sign-in enabled | `1` (Enabled) | `0` (Disabled) |
+| Browser add profile enabled | `0` (Disabled) | `1` (Enabled) |
+| Browser sign-in mode | `2` (Force sign-in) | `1` (Allow sign-in) |
+
+**Only in SIB:**
+
+| Setting | Value |
+|---------|-------|
+| Hide first run experience | `1` (Enabled — skips welcome screen) |
+
+> **Note:** SIB does not force Edge sign-in and allows users to add profiles. The hide first run setting is a benign UX addition.
+
+---
+
+### SC - Microsoft Edge - U - User Experience
+
+**Versions:** OIB v3.8 / SIB v3.8 — ⚠️ **4 settings missing from SIB, 5 extra settings in SIB**
+
+**No value conflicts** — all shared settings are identical.
+
+**Only in OIB (missing from SIB):**
+
+| Setting | OIB Value |
+|---------|-----------|
+| What's New page for Entra profiles enabled | `0` (Disabled) |
+| URL blocklist | Enabled, blocking `apps.microsoft.com` and variants |
+| Default notifications setting | `2` (Block by default) |
+| Notifications allowed for URLs | `*.microsoft.com`, `*.cloud.microsoft` |
+
+**Only in SIB (not in OIB):**
+
+| Setting | SIB Value |
+|---------|-----------|
+| New tab page search box | `redirect` (recommended) |
+| Default search provider name | Google (recommended) |
+| Default search provider URL | Full Google search URL (recommended) |
+| Default search provider enabled | `1` (Enabled, recommended) |
+| Homepage is new tab page | `1` (Enabled, recommended) |
+
+> **Note:** SIB retains Google as the recommended default search provider (removed from OIB v3.8). The OIB URL blocklist for apps.microsoft.com and notification controls are not deployed in SIB.
+
+---
+
+### SC - Windows User Experience - D - Feature Configuration
+
+**Versions:** OIB v3.8 / SIB v3.8 — ⚠️ **1 value difference**
+
+| Setting | OIB | SIB |
+|---------|-----|-----|
+| Allow news and interests | `1` (Enabled) | `0` (Disabled) |
+
+> **Note:** SIB disables the Windows news and interests / widgets feature on the taskbar.
+
+---
+
+## Policies Requiring Attention
+
+The following policies have security-relevant differences that should be reviewed and remediated:
+
+| Priority | Policy | Issue |
+|----------|--------|-------|
+| 🔴 High | ES - Windows Firewall - Firewall Configuration | All firewall logging disabled in SIB — no visibility into dropped packets or connections |
+| 🔴 High | SC - Microsoft Edge - D - Security | SSL error override allowed in SIB; download restrictions disabled; feature flag overrides disabled |
+| 🔴 High | SC - Microsoft Edge - U - Extensions | No extension blocklist in SIB — users can install any extension |
+| 🔴 High | SC - Device Security - Security Hardening | Wireless display projection without PIN allowed in SIB; LanmanWorkstation auditing missing; sudo not explicitly disabled |
+| 🟡 Medium | ES - Windows LAPS - LAPS Configuration (24H2+) | Post-authentication actions not configured in SIB; reset delay set to 0 (immediate) |
+| 🟡 Medium | SC - Device Security - Local Security Policies (24H2+) | UAC secure desktop disabled in SIB; all three UAC prompt settings use standard desktop instead |
+| 🟡 Medium | SC - Device Security - Location and Privacy | SIB significantly more permissive on location access |
+| 🟡 Medium | SC - Microsoft Edge - U - Password Management | Edge password manager disabled in SIB with no alternative controls |
+| 🟢 Low | SC - Device Security - Windows Subsystem for Linux | WSL custom networking user-configurable in SIB |
+| 🟢 Low | SC - Microsoft Edge - U - Profiles, Sign-In and Sync | Sign-in not forced in SIB; users can add profiles |
+| 🟢 Low | SC - Microsoft Edge - U - User Experience | SIB missing OIB URL blocklist (apps.microsoft.com) and notification controls; SIB adds Google as recommended search provider |
+| 🟢 Low | SC - Windows User Experience - D - Feature Configuration | News and interests (widgets) disabled in SIB |
+| 🟢 Low | SC - Device Security - U - Power and Device Lock | Sleep timeout tripled in SIB (likely intentional UX change) |
