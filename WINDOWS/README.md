@@ -1,6 +1,4 @@
-# Stellar Intune Baseline
-
-## Windows Policy Reference
+# Windows Policy Reference
 
 The table below lists all policies from the upstream [OpenIntuneBaseline](https://github.com/SkipToTheEndpoint/OpenIntuneBaseline) and their status in this baseline.
 
