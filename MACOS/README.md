@@ -31,3 +31,5 @@ The table below lists all policies from the upstream [OpenIntuneBaseline](https:
 | MacOS - OIB - Microsoft OneDrive - D - Service and Access - v1.0 | ✏️ | Deprecated `allowed` key removed from TCC Full Disk Access entry to prevent policy application issues |
 | MacOS - OIB - Microsoft OneDrive - U - Known Folder Move - v1.0 | ✅ | |
 | MacOS - OIB - Updates - D - Update Configuration - v1.0 | ✅ | |
+| **SIB Custom Policies** | | |
+| MacOS - SIB - Microsoft Edge - D - Privacy and Search - v1.0 | ➕ | Enforces Google as the default search provider and directs new tab search to the address bar |
