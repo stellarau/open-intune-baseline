@@ -36,3 +36,7 @@ The table below lists all policies from the upstream [OpenIntuneBaseline](https:
 | MacOS - SIB - Privacy & Security - D - Accessibility - v1.1 | ➕ | Grants accessibility TCC permissions to approved applications |
 | MacOS - SIB - Privacy & Security - D - Full Disk Access - v1.0 | ➕ | Grants Full Disk Access TCC permissions to approved applications |
 | MacOS - SIB - Privacy & Security - D - Screen Capture - v1.2 | ➕ | Grants Screen Capture TCC permissions to approved applications |
+| **SIB Custom Device Configuration Policies** | | |
+| MacOS - SIB - Device Security - D - Sophos Central - v1.1 | ➕ | Deploys Sophos Endpoint TCC and system extension permissions for Sophos Central managed detection and response |
+| MacOS - SIB - Network Connections - D - Wireless - v1.0 | ➕ | Configures WPA Personal Wi-Fi profile; SSID replaced with `<YOUR_SSID>` placeholder |
+| MacOS - SIB - User Experience - D - Desktop Wallpaper - v1.0 | ➕ | Sets desktop wallpaper path to `/Users/Shared/Wallpaper.jpg` via mobileconfig payload |
