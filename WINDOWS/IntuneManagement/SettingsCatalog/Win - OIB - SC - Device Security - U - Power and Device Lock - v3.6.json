@@ -230,7 +230,7 @@
         "simpleSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationIntegerSettingValue",
           "settingValueTemplateReference": null,
-          "value": 900
+          "value": 2700
         }
       },
       "settingDefinitions@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('52358169-92ea-4efa-9abf-2af196d28ca3')/settings('7')/settingDefinitions/$ref",

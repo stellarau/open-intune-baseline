@@ -17,7 +17,7 @@
   "roleScopeTagIds": [
     "0"
   ],
-  "settingCount": 3,
+  "settingCount": 2,
   "technologies@odata.type": "#microsoft.graph.deviceManagementConfigurationTechnologies",
   "technologies": "mdm",
   "id": "e5e675ef-4eb7-4e39-9b82-06d2f051660e",
@@ -48,7 +48,7 @@
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_privacy_letappsaccesslocation_0",
+          "value": "device_vendor_msft_policy_config_privacy_letappsaccesslocation_1",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
@@ -62,45 +62,19 @@
       "@odata.editLink": "deviceManagement/configurationPolicies('e5e675ef-4eb7-4e39-9b82-06d2f051660e')/settings('1')",
       "id": "1",
       "settingInstance": {
-        "@odata.type": "#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstance",
-        "settingDefinitionId": "device_vendor_msft_policy_config_privacy_letappsaccesslocation_forceallowtheseapps",
-        "settingInstanceTemplateReference": null,
-        "simpleSettingCollectionValue@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSimpleSettingValue)",
-        "simpleSettingCollectionValue": [
-          {
-            "@odata.type": "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
-            "settingValueTemplateReference": null,
-            "value": "windows.immersivecontrolpanel_cw5n1h2txyewy"
-          },
-          {
-            "@odata.type": "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
-            "settingValueTemplateReference": null,
-            "value": "Microsoft.OutlookForWindows_8wekyb3d8bbwe"
-          }
-        ]
-      },
-      "settingDefinitions@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('e5e675ef-4eb7-4e39-9b82-06d2f051660e')/settings('1')/settingDefinitions/$ref",
-      "settingDefinitions@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('e5e675ef-4eb7-4e39-9b82-06d2f051660e')/settings('1')/settingDefinitions"
-    },
-    {
-      "@odata.type": "#microsoft.graph.deviceManagementConfigurationSetting",
-      "@odata.id": "deviceManagement/configurationPolicies('e5e675ef-4eb7-4e39-9b82-06d2f051660e')/settings('2')",
-      "@odata.editLink": "deviceManagement/configurationPolicies('e5e675ef-4eb7-4e39-9b82-06d2f051660e')/settings('2')",
-      "id": "2",
-      "settingInstance": {
         "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
         "settingDefinitionId": "device_vendor_msft_policy_config_system_allowlocation",
         "settingInstanceTemplateReference": null,
         "choiceSettingValue": {
           "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
           "settingValueTemplateReference": null,
-          "value": "device_vendor_msft_policy_config_system_allowlocation_1",
+          "value": "device_vendor_msft_policy_config_system_allowlocation_2",
           "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
           "children": []
         }
       },
-      "settingDefinitions@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('e5e675ef-4eb7-4e39-9b82-06d2f051660e')/settings('2')/settingDefinitions/$ref",
-      "settingDefinitions@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('e5e675ef-4eb7-4e39-9b82-06d2f051660e')/settings('2')/settingDefinitions"
+      "settingDefinitions@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('e5e675ef-4eb7-4e39-9b82-06d2f051660e')/settings('1')/settingDefinitions/$ref",
+      "settingDefinitions@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('e5e675ef-4eb7-4e39-9b82-06d2f051660e')/settings('1')/settingDefinitions"
     }
   ],
   "#microsoft.graph.assign": {
