@@ -33,3 +33,6 @@ The table below lists all policies from the upstream [OpenIntuneBaseline](https:
 | MacOS - OIB - Updates - D - Update Configuration - v1.0 | ✅ | |
 | **SIB Custom Policies** | | |
 | MacOS - SIB - Microsoft Edge - D - Privacy and Search - v1.0 | ➕ | Enforces Google as the default search provider and directs new tab search to the address bar |
+| MacOS - SIB - Privacy & Security - D - Accessibility - v1.1 | ➕ | Grants accessibility TCC permissions to approved applications |
+| MacOS - SIB - Privacy & Security - D - Full Disk Access - v1.0 | ➕ | Grants Full Disk Access TCC permissions to approved applications |
+| MacOS - SIB - Privacy & Security - D - Screen Capture - v1.2 | ➕ | Grants Screen Capture TCC permissions to approved applications |
