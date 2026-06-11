@@ -11,7 +11,7 @@ The table below lists all policies from the upstream [OpenIntuneBaseline](https:
 |:---|:---:|:---|
 | **Compliance Policies** | | |
 | MacOS - OIB - Compliance - U - Device Health - v1.0 | ✅ | |
-| MacOS - OIB - Compliance - U - Device Security - v1.0 | ✅ | |
+| MacOS - OIB - Compliance - U - Device Security - v1.0 | ✏️ | Block all incoming connections disabled to permit AirDrop and approved network services |
 | MacOS - OIB - Compliance - U - Password - v1.0 | ✅ | |
 | **Settings Catalog** | | |
 | MacOS - OIB - Authentication - D - Platform SSO - v1.0 | ✅ | |
