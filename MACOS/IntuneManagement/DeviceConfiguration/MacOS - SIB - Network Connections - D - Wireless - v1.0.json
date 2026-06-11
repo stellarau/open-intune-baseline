@@ -1,0 +1,20 @@
+{
+  "roleScopeTagIds": [
+    "0"
+  ],
+  "supportsScopeTags": true,
+  "description": null,
+  "displayName": "MacOS - SIB - Network Connections - D - Wireless - v1.0",
+  "networkName": "<YOUR_NETWORK_NAME>",
+  "ssid": "<YOUR_SSID>",
+  "connectAutomatically": true,
+  "connectWhenNetworkNameIsHidden": true,
+  "wiFiSecurityType": "wpaPersonal",
+  "proxySettings": "none",
+  "proxyManualAddress": null,
+  "proxyManualPort": null,
+  "proxyAutomaticConfigurationUrl": null,
+  "deploymentChannel": "deviceChannel",
+  "wifiRequirePhysicalMacAddressEnabled": false,
+  "preSharedKey": null
+}
