@@ -19,7 +19,7 @@ The table below lists all policies from the upstream [OpenIntuneBaseline](https:
 | MacOS - OIB - Defender Antivirus - D - MDE Configuration - v1.0 | ✅ | |
 | MacOS - OIB - Device Security - D - Accounts and Login - v1.0 | ✏️ | Hiding admin accounts at the login window reduces the attack surface by not advertising privileged account names |
 | MacOS - OIB - Device Security - D - Restrictions - v1.0 | ✏️ | OIB restrictions relaxed to support normal user productivity; iCloud services, AirDrop, Siri and sharing features enabled |
-| MacOS - OIB - Disk Encryption - D - FileVault - v1.0 | ✅ | |
+| MacOS - OIB - Disk Encryption - D - FileVault - v1.0 | ✏️ | Explicitly set showrecoverykey to false to prevent the personal recovery key being displayed to the user during FileVault setup |
 | MacOS - OIB - Firewall - D - Gatekeeper - v1.0 | ✅ | |
 | MacOS - OIB - Microsoft AutoUpdate - D - MAU Configuration - v1.0 | ✅ | |
 | MacOS - OIB - Microsoft Edge - D - Password Management - v1.0 | ✅ | |
