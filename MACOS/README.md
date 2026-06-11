@@ -28,6 +28,6 @@ The table below lists all policies from the upstream [OpenIntuneBaseline](https:
 | MacOS - OIB - Microsoft Edge - U - Profiles, Sign-In and Sync - v1.0 | ✏️ | Users permitted to add additional Edge profiles |
 | MacOS - OIB - Microsoft Edge - U - Updates - v1.0 | ✅ | |
 | MacOS - OIB - Microsoft Office - D - Office Configuration - v1.0 | ✅ | |
-| MacOS - OIB - Microsoft OneDrive - D - Service and Access - v1.0 | ✅ | |
+| MacOS - OIB - Microsoft OneDrive - D - Service and Access - v1.0 | ✏️ | Deprecated `allowed` key removed from TCC Full Disk Access entry to prevent policy application issues |
 | MacOS - OIB - Microsoft OneDrive - U - Known Folder Move - v1.0 | ✅ | |
 | MacOS - OIB - Updates - D - Update Configuration - v1.0 | ✅ | |
