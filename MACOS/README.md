@@ -25,7 +25,7 @@ The table below lists all policies from the upstream [OpenIntuneBaseline](https:
 | MacOS - OIB - Microsoft Edge - D - Password Management - v1.0 | ✏️ | Edge built-in password manager and breach monitoring disabled in favour of a third-party password manager |
 | MacOS - OIB - Microsoft Edge - D - Security - v1.0 | ✅ | |
 | MacOS - OIB - Microsoft Edge - U - Extensions - v1.0 | ✏️ | Allows ability to install extensions |
-| MacOS - OIB - Microsoft Edge - U - Profiles, Sign-In and Sync - v1.0 | ✅ | |
+| MacOS - OIB - Microsoft Edge - U - Profiles, Sign-In and Sync - v1.0 | ✏️ | Users permitted to add additional Edge profiles |
 | MacOS - OIB - Microsoft Edge - U - Updates - v1.0 | ✅ | |
 | MacOS - OIB - Microsoft Office - D - Office Configuration - v1.0 | ✅ | |
 | MacOS - OIB - Microsoft OneDrive - D - Service and Access - v1.0 | ✅ | |
