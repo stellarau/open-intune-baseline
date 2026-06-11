@@ -22,7 +22,7 @@ The table below lists all policies from the upstream [OpenIntuneBaseline](https:
 | MacOS - OIB - Disk Encryption - D - FileVault - v1.0 | ✏️ | Explicitly set showrecoverykey to false to prevent the personal recovery key being displayed to the user during FileVault setup |
 | MacOS - OIB - Firewall - D - Gatekeeper - v1.0 | ✏️ | OIB restrictions relaxed to support normal user productivity; firewall stealth mode disabled |
 | MacOS - OIB - Microsoft AutoUpdate - D - MAU Configuration - v1.0 | ✅ | |
-| MacOS - OIB - Microsoft Edge - D - Password Management - v1.0 | ✅ | |
+| MacOS - OIB - Microsoft Edge - D - Password Management - v1.0 | ✏️ | Edge built-in password manager and breach monitoring disabled in favour of a third-party password manager |
 | MacOS - OIB - Microsoft Edge - D - Security - v1.0 | ✅ | |
 | MacOS - OIB - Microsoft Edge - U - Extensions - v1.0 | ✅ | |
 | MacOS - OIB - Microsoft Edge - U - Profiles, Sign-In and Sync - v1.0 | ✅ | |
