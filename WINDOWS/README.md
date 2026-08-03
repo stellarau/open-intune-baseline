@@ -196,7 +196,15 @@ This section summarises the functional differences between the upstream OpenIntu
 | LanmanWorkstation: Audit server doesn't support signing | `1` (Enabled) |
 | Sudo: Enable sudo | `0` (Disabled) |
 
+**Only in SIB (not in OIB):**
+
+| Setting | SIB Value |
+|---------|-----------|
+| DNS Client: Turn off multicast name resolution | `1` (Enabled) |
+
 > **Risk:** Wireless display projection allowed without PIN in SIB is a meaningful security regression. Missing LanmanWorkstation audit settings reduce visibility into SMB security issues. Missing sudo disable leaves the feature in its default state.
+>
+> **Note:** SIB adds LLMNR multicast name resolution hardening (not present in upstream OIB) to close a known spoofing/poisoning gap (e.g. via Responder) — recommended by CIS Benchmarks, NCSC guidance, and Microsoft's own security baseline.
 
 ---
 
