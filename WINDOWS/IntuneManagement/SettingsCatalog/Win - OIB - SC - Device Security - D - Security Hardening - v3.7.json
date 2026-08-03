@@ -17,7 +17,7 @@
   "roleScopeTagIds": [
     "0"
   ],
-  "settingCount": 76,
+  "settingCount": 77,
   "technologies@odata.type": "#microsoft.graph.deviceManagementConfigurationTechnologies",
   "technologies": "mdm",
   "id": "99ff7a9a-e27e-4217-8325-dfebd2e9cfe0",
@@ -1741,6 +1741,26 @@
       },
       "settingDefinitions@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('75')/settingDefinitions/$ref",
       "settingDefinitions@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('75')/settingDefinitions"
+    },
+    {
+      "@odata.type": "#microsoft.graph.deviceManagementConfigurationSetting",
+      "@odata.id": "deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('76')",
+      "@odata.editLink": "deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('76')",
+      "id": "76",
+      "settingInstance": {
+        "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+        "settingDefinitionId": "device_vendor_msft_policy_config_admx_dnsclient_turn_off_multicast",
+        "settingInstanceTemplateReference": null,
+        "choiceSettingValue": {
+          "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValue",
+          "settingValueTemplateReference": null,
+          "value": "device_vendor_msft_policy_config_admx_dnsclient_turn_off_multicast_1",
+          "children@odata.type": "#Collection(microsoft.graph.deviceManagementConfigurationSettingInstance)",
+          "children": []
+        }
+      },
+      "settingDefinitions@odata.associationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('76')/settingDefinitions/$ref",
+      "settingDefinitions@odata.navigationLink": "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('99ff7a9a-e27e-4217-8325-dfebd2e9cfe0')/settings('76')/settingDefinitions"
     }
   ],
   "#microsoft.graph.assign": {
